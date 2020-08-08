@@ -11,14 +11,14 @@ client.on('ready', () => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-
+//This is a basic test of the bot. Users says Ping, bot says Pong.
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('pong');
   }
 });
 
-
+//Here is where both arrays for Gex functionality are defined
 var randArr = [];
 var gexArr = [
 "Get your stinking paws off me you damn dirty ape!",
@@ -359,7 +359,7 @@ var gexArr = [
 "Oh William please... Give me a sponge bath.",
 ];
 
-//Code to create randArr array with enough values to handle maximal call gexArr[gexArr.length]
+//Code to populate randArr array
 for (var j=0;j<gexArr.length*2;j++) {
   var num = Math.floor(Math.random()*10)
   num = num*Math.floor(Math.random()*100)
@@ -368,13 +368,14 @@ for (var j=0;j<gexArr.length*2;j++) {
   }
 }
 
-
+//This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
   if (msg.content === 'gex') {
     msg.channel.send(gexArr[randArr[Math.floor(Math.random()*10)]]);
   }
 });
 
+//I am playing around with different API functions here, this one just prints a message if a message has my name at the beginning
 client.on('message',msg => {
 	if (msg.content.startsWith('Andrew')) {
 		msg.channel.send("Not a Gex Quote")
