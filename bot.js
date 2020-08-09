@@ -370,7 +370,7 @@ for (var j=0;j<gexArr.length*2;j++) {
 
 //This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
-  if (msg.content === 'gex') {
+  if (msg.content.includes('gex') {
     msg.channel.send(gexArr[randArr[Math.floor(Math.random()*10)]]);
   }
 });
