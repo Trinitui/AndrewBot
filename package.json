@@ -6,13 +6,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "12.18.3",
-    "npm": "*"
-  },
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0"
+  },
+  "engines": {
+    "node": "12.18.3",
+    "npm": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
