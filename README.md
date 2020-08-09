@@ -8,3 +8,5 @@ Procfile needed for Heroku integration added as well. Guide I used was here: htt
 Logs for Heroku rebulds: https://dashboard.heroku.com/apps/discord-andrewbot/logs
 
 Notes on Discord JS library that is being used: https://discord.js.org/#/
+
+Next up is to rebuild the bot with this guide: https://discordjs.guide/#before-you-begin
