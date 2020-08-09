@@ -1,4 +1,4 @@
 # AndrewBot
-Private Repo for my Discord Bot, AndrewBot. 
+Private Repo for AndrewBot. 
 
-Will be adding files for discord bot here soon. 
+Files related to the logic of AndrewBot are uploaded. Dependencies and Modules are not. 
