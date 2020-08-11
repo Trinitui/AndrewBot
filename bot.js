@@ -14,7 +14,7 @@ client.login(process.env.DISCORD_TOKEN);
 //This is a basic test of the bot. Users says Ping, bot says Pong.
 client.on('message', msg => {
   if (msg.content === 'ping') {
-    msg.reply('pong');
+    msg.reply('**pong**');
   }
 });
 
@@ -499,7 +499,7 @@ for (var j=0;j<gexArr.length*2;j++) {
 //This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
   if (msg.content.includes('gex')) {
-    msg.channel.send("<:gx:742018954196811886> "+gexArr[randArr[Math.floor(Math.random()*10)]]);
+    msg.channel.send(**"<:gx:742018954196811886> "+gexArr[randArr[Math.floor(Math.random()*10)]]**);
   }
 });
 
