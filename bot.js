@@ -359,6 +359,134 @@ var gexArr = [
 "Oh William please... Give me a sponge bath.",
 ];
 
+let peopleArr = [
+"Donald Trump",
+"Barack Obama",
+"Greta Thunberg",
+"Pope Francis",
+"Osama Bin Laden",
+"Tony Blair",
+"Angela Merkel",
+"Silvio Berlusconi",
+"J.K.Rowling",
+"Kim Jong Un",
+"Usain Bolt",
+"Malala Yousafzai",
+"Stephen Hawking",
+"Linus Torvalds",
+"George Bush Jr",
+"Joe Biden",
+"Jimmy Wales",
+"Steve Jobs",
+"Hilary Clinton",
+"Queen Elizabeth II",
+"Jimmy Carter",
+"George Clooney",
+"Oprah Winfrey",
+"Paul Krugman",
+"Tim Berners-Lee",
+"Lance Armstrong",
+"Prince William",
+"Kate Middleton",
+"Lionel Messi",
+"Rupert Murdoch",
+"Al Gore",
+"Hilary Clinton",
+"Cristiano Ronaldo",
+"Sachin Tendulkar",
+"Emma Watson",
+"Beyonce",
+"Lady Gaga",
+"Angelina Jolie",
+"Vladimir Putin",
+"Roman Abramovich",
+"David Cameron",
+"Will Smith",
+"Larry Page",
+"Angelina Jolie",
+"Sergey Brin",
+"Ivanka Trump",
+"Shakira",
+"Serena Williams",
+"Michael Bloomberg",
+"Mark Zuckerberg",
+"Lakshmi Mittal",
+"Luiz Incio Lula da Silva",
+"Prince William",
+"Elon Musk",
+"Sacha Baron Cohen",
+"Jon Stewart",
+"Scarlett Johansson",
+"Stephen Colbert",
+"Prince Charles",
+"Bashar Assad",
+"E.L. James",
+"Rihanna",
+"Novak Djokovic",
+"Warren Buffett",
+"Xi Jinping",
+"Prince Harry",
+"Meghan Markle",
+"Muhammad Yunus",
+"Roger Federer",
+];
+
+let placeArr = [
+"house",
+"bar",
+"dressing Room",
+"Burger King",
+"bedroom",
+"living room",
+"airport",
+"apartment building",
+"bank",
+"barber shop",
+"book store",
+"bowling alley",
+"bus stop",
+"church",
+"convenience store",
+"department store",
+"fire department",
+"gas station",
+"hospital",
+"house",
+"library",
+"movie theater",
+"museum",
+"office building",
+"post office",
+"restaurant",
+"school",
+"mall",
+"supermarket",
+"train station",
+];
+
+let actionArr = [
+"sleeping",
+"driving",
+"Halloween",
+"Christmas",
+"Easter",
+"Sunday School",
+"watching TV",
+"playing video games",
+"working",
+"reading Gex Quotes",
+"watching the History Channel",
+"listening to Lo-Fi Beats",
+"gambling",
+"drinking",
+"having a pleasant evening",
+"dating",
+"a wedding"
+];
+
+
+
+
 //Code to populate randArr array
 for (var j=0;j<gexArr.length*2;j++) {
   var num = Math.floor(Math.random()*10)
@@ -380,4 +508,54 @@ client.on('message',msg => {
 	if (msg.content.startsWith('Andrew')) {
 		msg.channel.send("Not a Gex Quote")
 	}
+});
+
+//This is for the new gex quotes
+
+client.on('message',msg => {
+	if (msg.content.includes("gexquote")) {
+switch (Math.floor(Math.random()*10)) {
+	case 1:
+		//console.log("#1")
+		msg.channel.send("Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
+		break;
+	case 2:
+		//console.log("#2")
+		msg.channel.send("Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+		break;
+	case 3:
+		console.log("#3")
+		msg.channel.send("Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		break;
+	case 4:
+		//console.log("#4")
+		msg.channel.send("Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
+		break;
+	case 5:
+		//console.log("#5")
+		msg.channel.send("Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
+		break;
+	case 6:
+		//console.log("#6")
+		msg.channel.send("Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
+		break;
+	case 7:
+		//console.log("#7")
+		msg.channel.send("I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+		break;
+	case 8:
+		//console.log("#8")
+		msg.channel.send("This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		break;
+	case 9:
+		//console.log("#9")
+		msg.channel.send("This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
+		break;
+	case 0:
+		//console.log("#0")
+		msg.channel.send("This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		
+		break;
+}
+		}
 });
