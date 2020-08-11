@@ -513,7 +513,7 @@ client.on('message',msg => {
 //This is for the new gex quotes
 
 client.on('message',msg => {
-	if (msg.content.includes("gexquote")) {
+	if (msg.content.includes("newquote")) {
 switch (Math.floor(Math.random()*10)) {
 	case 1:
 		//console.log("#1")
