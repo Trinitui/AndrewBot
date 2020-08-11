@@ -7,6 +7,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+	console.log(`Logged in to: ${message.guild.name}!`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
