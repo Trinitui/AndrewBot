@@ -517,43 +517,43 @@ client.on('message',msg => {
 switch (Math.floor(Math.random()*10)) {
 	case 1:
 		//console.log("#1")
-		msg.channel.send("Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
+		msg.channel.send("<:gx:742018954196811886> "+"Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
 		break;
 	case 2:
 		//console.log("#2")
-		msg.channel.send("Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+		msg.channel.send("<:gx:742018954196811886> "+"Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
 		break;
 	case 3:
 		console.log("#3")
-		msg.channel.send("Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		msg.channel.send("<:gx:742018954196811886> "+"Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		break;
 	case 4:
 		//console.log("#4")
-		msg.channel.send("Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
+		msg.channel.send("<:gx:742018954196811886> "+"Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
 		break;
 	case 5:
 		//console.log("#5")
-		msg.channel.send("Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
+		msg.channel.send("<:gx:742018954196811886> "+"Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
 		break;
 	case 6:
 		//console.log("#6")
-		msg.channel.send("Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
+		msg.channel.send("<:gx:742018954196811886> "+"Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
 		break;
 	case 7:
 		//console.log("#7")
-		msg.channel.send("I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+		msg.channel.send("<:gx:742018954196811886> "+"I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
 		break;
 	case 8:
 		//console.log("#8")
-		msg.channel.send("This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		msg.channel.send("<:gx:742018954196811886> "+"This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		break;
 	case 9:
 		//console.log("#9")
-		msg.channel.send("This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
+		msg.channel.send("<:gx:742018954196811886> "+"This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
 		break;
 	case 0:
 		//console.log("#0")
-		msg.channel.send("This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+		msg.channel.send("<:gx:742018954196811886> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		
 		break;
 }
