@@ -486,6 +486,7 @@ let actionArr = [
 
 
 
+//This may not be necessary - Maybe use what I learned for new gex quotes to get rid of this whole randarray??
 
 //Code to populate randArr array
 for (var j=0;j<gexArr.length*2;j++) {
