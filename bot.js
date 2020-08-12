@@ -555,8 +555,7 @@ switch (Math.floor(Math.random()*10)) {
 	case 0:
 		//console.log("#0")
 		msg.channel.send("<:gx:742018954196811886> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
-		
 		break;
-}
 		}
+	}
 });
