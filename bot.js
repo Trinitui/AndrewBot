@@ -6,7 +6,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!}`);
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
@@ -485,75 +485,46 @@ let actionArr = [
 ];
 
 
-
-//This may not be necessary - Maybe use what I learned for new gex quotes to get rid of this whole randarray??
-
-//Code to populate randArr array
-for (var j=0;j<gexArr.length*2;j++) {
-  var num = Math.floor(Math.random()*10)
-  num = num*Math.floor(Math.random()*100)
-  if (num < gexArr.length & num > 0){
-    randArr.push(num);
-  }
-}
-
 //This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
   if (msg.content.includes('gex')) {
-    msg.channel.send("<:gx:743242684281389176> "+gexArr[randArr[Math.floor(Math.random()*10)]]);
+    msg.channel.send("<:gx:743242684281389176> "+gexArr[randArr[Math.floor(Math.random()*gexArr.length)]]);
   }
 });
 
-//I am playing around with different API functions here, this one just prints a message if a message has my name at the beginning
-client.on('message',msg => {
-	if (msg.content.startsWith('Andrew')) {
-		msg.channel.send("Not a Gex Quote")
-	}
-});
 
 //This is for the new gex quotes
-
 client.on('message',msg => {
 	if (msg.content.includes("newquote")) {
 switch (Math.floor(Math.random()*10)) {
 	case 1:
-		//console.log("#1")
 		msg.channel.send("<:gx:743242684281389176> "+"Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
 		break;
 	case 2:
-		//console.log("#2")
 		msg.channel.send("<:gx:743242684281389176> "+"Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
 		break;
 	case 3:
-		console.log("#3")
 		msg.channel.send("<:gx:743242684281389176> "+"Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		break;
 	case 4:
-		//console.log("#4")
 		msg.channel.send("<:gx:743242684281389176> "+"Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
 		break;
 	case 5:
-		//console.log("#5")
 		msg.channel.send("<:gx:743242684281389176> "+"Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
 		break;
 	case 6:
-		//console.log("#6")
 		msg.channel.send("<:gx:743242684281389176> "+"Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
 		break;
 	case 7:
-		//console.log("#7")
 		msg.channel.send("<:gx:743242684281389176> "+"I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
 		break;
 	case 8:
-		//console.log("#8")
 		msg.channel.send("<:gx:743242684281389176> "+"This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		break;
 	case 9:
-		//console.log("#9")
 		msg.channel.send("<:gx:743242684281389176> "+"This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
 		break;
 	case 0:
-		//console.log("#0")
 		msg.channel.send("<:gx:743242684281389176> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 		break;
 		}
