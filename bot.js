@@ -478,7 +478,7 @@ let actionArr = [
 //This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
   if (msg.content.includes('gex')) {
-    msg.channel.send("<:gx:743242684281389176> "+gexArr[randArr[Math.floor(Math.random()*gexArr.length)]]);
+    msg.channel.send("<:gx:743242684281389176> "+gexArr[Math.floor(Math.random()*gexArr.length)]);
   }
 });
 
