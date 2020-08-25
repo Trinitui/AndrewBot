@@ -532,8 +532,7 @@ client.on('message', msg => {
       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`)
       .then(response => {
     //send output to channel
-    console.log(response.data.items.videoID);
-    let vid = response.data.items.videoID;
+    let vid = response.data.items[0].id.videoId;
     msg.channel.send(`https://www.youtube.com/watch?v=${vid}`);
       })
     .catch(error => {
