@@ -519,4 +519,23 @@ switch (Math.floor(Math.random()*10)) {
 		break;
 		}
 	}
+	
+	
 });
+
+client.on('message', msg => {
+  if (msg.content.startsWith('!nightcore')){
+    let q = msg.content;
+    //search yt for Nightcore+searchterm
+      axios.get(`https://googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`)
+      .then(response => {
+    //send output to channel
+    console.log(response.data.items.videoID);
+    let vid = response.data.items.videoID;
+    msg.channel.send(`https://www.youtube.com/watch?v=${vid}`);
+      })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+})
