@@ -1,6 +1,8 @@
 
 // Run dotenv
 require('dotenv').config();
+//Run axios?
+require('axios')
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -527,7 +529,7 @@ client.on('message', msg => {
   if (msg.content.startsWith('!nightcore')){
     let q = msg.content;
     //search yt for Nightcore+searchterm
-      axios.get(`https://googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`)
+      axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`)
       .then(response => {
     //send output to channel
     console.log(response.data.items.videoID);
