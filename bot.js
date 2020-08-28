@@ -2,7 +2,7 @@
 // Run dotenv
 require('dotenv').config();
 //Run axios?
-require('axios')
+const axios = require('axios')
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
