@@ -3,6 +3,7 @@
 require('dotenv').config();
 //Run axios?
 const axios = require('axios')
+const YOUTUBE_APIKEY = process.env.YOUTUBE_APIKEY
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
