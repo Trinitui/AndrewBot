@@ -540,4 +540,10 @@ client.on('message', msg => {
       console.log(error);
     })
   }
-})
+});
+
+client.on('message',msg => {
+	if (msg.content.includes('AndrewBot')){
+		msg.channel.send(`🤖`)
+	}
+});
