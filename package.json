@@ -7,9 +7,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "axios": "^0.20.0"
+    "holy-bible": "^1.2.0"
   },
   "engines": {
     "node": "12.18.3",

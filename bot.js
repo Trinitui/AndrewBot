@@ -5,6 +5,9 @@ require('dotenv').config();
 const axios = require('axios')
 const YOUTUBE_APIKEY = process.env.YOUTUBE_APIKEY
 
+//require holy-bible
+var bible = require('holy-bible');
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -547,3 +550,32 @@ client.on('message',msg => {
 		msg.channel.send(`🤖`)
 	}
 });
+
+
+client.on('message',msg => {
+	if(msg.content.startsWith('Matthew')) {
+		bible.get(msg)
+		.then(function (res) {
+			msg.channel.send(res.text)
+		})
+	}
+	if(msg.content.startsWith('Mark')) {
+		bible.get(msg)
+		.then(function (res) {
+			msg.channel.send(res.text)
+		})
+	}
+	if(msg.content.startsWith('Luke')) {
+		bible.get(msg)
+		.then(function (res) {
+			msg.channel.send(res.text)
+		})
+	}	
+	if(msg.content.startsWith('John')) {
+		bible.get(msg)
+		.then(function (res) {
+			msg.channel.send(res.text)
+		})
+	}
+	
+})
