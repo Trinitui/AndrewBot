@@ -554,25 +554,25 @@ client.on('message',msg => {
 
 client.on('message',msg => {
 	if(msg.content.startsWith('Matthew')) {
-		bible.get(msg)
+		bible.get(msg.toString())
 		.then(function (res) {
 			msg.channel.send(res.text)
 		})
 	}
 	if(msg.content.startsWith('Mark')) {
-		bible.get(msg)
+		bible.get(msg.toString())
 		.then(function (res) {
 			msg.channel.send(res.text)
 		})
 	}
 	if(msg.content.startsWith('Luke')) {
-		bible.get(msg)
+		bible.get(msg.toString())
 		.then(function (res) {
 			msg.channel.send(res.text)
 		})
 	}	
 	if(msg.content.startsWith('John')) {
-		bible.get(msg)
+		bible.get(msg.toString())
 		.then(function (res) {
 			msg.channel.send(res.text)
 		})
