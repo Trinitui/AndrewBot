@@ -11,8 +11,10 @@ var bible = require('holy-bible');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+
 const gexArr = require('./gexArr.js')
 const {peopleArr, actionArr, placeArr} = require("./activeArrs.js")
+
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
