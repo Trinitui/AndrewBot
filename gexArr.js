@@ -1,4 +1,4 @@
-export default [
+const gexArr = [
     "Get your stinking paws off me you damn dirty ape!",
     "Its tail time!",
     "YYYEEESSS!",
@@ -336,3 +336,5 @@ export default [
     "To boldly go...I\'m scared!",
     "Oh William please... Give me a sponge bath.",
     ];
+
+    export default gexArr
