@@ -336,5 +336,5 @@ const gexArr = [
     "To boldly go...I\'m scared!",
     "Oh William please... Give me a sponge bath.",
     ];
-
-    export default gexArr
+    
+   module.exports = gexArr;

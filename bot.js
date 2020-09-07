@@ -12,7 +12,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-const gexArr = require('./gexArr.js')
+const gexArr = require('./gexArr.js').default
 const {peopleArr, actionArr, placeArr} = require("./activeArrs.js")
 
 
