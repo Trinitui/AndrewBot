@@ -1,17 +1,19 @@
 
 // Run dotenv
 require('dotenv').config();
-//Run axios?
+
+//Run axios and get YT key
 const axios = require('axios')
 const YOUTUBE_APIKEY = process.env.YOUTUBE_APIKEY
 
 //require holy-bible
 var bible = require('holy-bible');
 
+//Require and create Discord JS stuff
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-
+//Import Arrays from other files. 
 const gexArr = require('./gexArr.js')
 const {peopleArr, actionArr, placeArr} = require("./activeArrs.js")
 
@@ -77,6 +79,7 @@ switch (Math.floor(Math.random()*10)) {
 	
 });
 
+// This gets a nightcore song when the user asks for one, using !nightcore*
 client.on('message', msg => {
   if (msg.content.startsWith('!nightcore')){
     let q = msg.content;
@@ -93,6 +96,7 @@ client.on('message', msg => {
   }
 });
 
+//When AndrewBot is mentioned, return 🤖
 client.on('message',msg => {
 	if (msg.content.includes('AndrewBot')){
 		msg.channel.send(`🤖`)
@@ -100,6 +104,7 @@ client.on('message',msg => {
 });
 
 
+// Playing around with the Bible NPM library. Might do more here but :shrug:
 client.on('message',msg => {
 	if(msg.content.startsWith('Matthew')) {
 		bible.get(msg.toString())
