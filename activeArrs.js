@@ -114,4 +114,4 @@ let peopleArr = [
     ];
 
 
-    export {peopleArr, actionArr, placeArr};
+ module.exports = {peopleArr, actionArr, placeArr};
