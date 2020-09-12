@@ -1,3 +1,25 @@
+//WAIT! Read these comments before moving on...
+// The first section below has a lot of variables being initialized to get what 
+// the bot needs from different dependencies. 
+//
+// The Bot is then logged in once everything is declared
+//
+// After that, There's a section with different Commands. A shortlist of commands is below:
+// 1. Ping-Pong
+// 2. Obtain a Gex Quote from a known array of them
+// 3. Generate a new Gex Quote (why...)
+// 4. Return a Nightcore song when asked
+// 5. Return a robot emoji when AndrewBot is mentioned. This is to quickly check bot status
+// 6. Playing around with new NPM Libraries, this time the holy-bible one for some reason.
+//
+//
+//
+// If you want to add something new, submit an issue first. 
+
+
+
+
+
 
 // Run dotenv
 require('dotenv').config();
@@ -17,21 +39,24 @@ const client = new Discord.Client();
 const gexArr = require('./gexArr.js')
 const {peopleArr, actionArr, placeArr} = require("./activeArrs.js")
 
-
+// Log Bot into discord
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
 
-//This is a basic test of the bot. Users says Ping, bot says Pong.
+
+
+
+//1. This is a basic test of the bot. Users says Ping, bot says Pong.
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('**pong**');
   }
 });
 
-//This function handles user's pressing needs to get a Gex quote. 
+//2. This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
   if (msg.content.includes('gex')) {
     msg.channel.send("<:gx:743242684281389176> "+gexArr[Math.floor(Math.random()*gexArr.length)]);
@@ -39,7 +64,7 @@ client.on('message', msg => {
 });
 
 
-//This is for the new gex quotes
+//3. This is for the new gex quotes
 client.on('message',msg => {
 	if (msg.content.includes("newquote")) {
 switch (Math.floor(Math.random()*10)) {
@@ -79,7 +104,7 @@ switch (Math.floor(Math.random()*10)) {
 	
 });
 
-// This gets a nightcore song when the user asks for one, using !nightcore*
+// 4. This gets a nightcore song when the user asks for one, using !nightcore*
 client.on('message', msg => {
   if (msg.content.startsWith('!nightcore')){
     let q = msg.content;
@@ -96,7 +121,7 @@ client.on('message', msg => {
   }
 });
 
-//When AndrewBot is mentioned, return 🤖
+// 5. When AndrewBot is mentioned, return 🤖
 client.on('message',msg => {
 	if (msg.content.includes('AndrewBot')){
 		msg.channel.send(`🤖`)
@@ -104,7 +129,7 @@ client.on('message',msg => {
 });
 
 
-// Playing around with the Bible NPM library. Might do more here but :shrug:
+// 6. Playing around with the Bible NPM library. Might do more here but :shrug:
 client.on('message',msg => {
 	if(msg.content.startsWith('Matthew')) {
 		bible.get(msg.toString())
