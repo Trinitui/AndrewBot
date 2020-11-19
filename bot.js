@@ -128,6 +128,11 @@ client.on('message',msg => {
 	}
 });
 
+client.on('message',msg => {
+	if (msg.content.includes('Rudy')){
+		msg.channel.send(`Those votes were from Mickey Mouse!`)
+	}
+});
 
 // 6. Playing around with the Bible NPM library. Might do more here but :shrug:
 client.on('message',msg => {
