@@ -131,7 +131,7 @@ client.on('message',msg => {
 //5.x Rudy functionality
 client.on('message',msg => {
 	if (msg.content.includes('Rudy')){
-		switch (Math.floor(Math.random()*5)) {
+		switch (Math.floor(Math.random()*6)) {
 			case 1:
 				msg.channel.send("Those votes were from Mickey Mouse!")
 				break;
@@ -143,6 +143,9 @@ client.on('message',msg => {
 				break;
 			case 4:
 				msg.channel.send("This is not a fraud case",{ files: ["./Pictures/Rudy_1.png"] })
+				break;
+			case 5:
+				msg.channel.send("I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.",{ files: ["./Pictures/Rudy_3.png"]} )
 				break;
 			case 0: 
 				msg.channel.send("Oh Donald, you brute!",{ files: ["./Pictures/Rudy_curse.jpg"] })
