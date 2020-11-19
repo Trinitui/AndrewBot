@@ -136,16 +136,16 @@ client.on('message',msg => {
 				msg.channel.send("Those votes were from Mickey Mouse!")
 				break;
 			case 2:
-				msg.channel.send("What does opacity mean? It probably means you can see.");
+				msg.channel.send("What does opacity mean? It probably means you can see.",{ files: ["./Pictures/Rudy_2.png"] });
 				break;
 			case 3:
-				msg.channel.send("ALL THE NETWORKS!!!")
+				msg.channel.send("ALL THE NETWORKS!!!",{ files: ["./Pictures/Rudy_all.png"] })
 				break;
 			case 4:
 				msg.channel.send("This is not a fraud case",{ files: ["./Pictures/Rudy_1.png"] })
 				break;
 			case 0: 
-				msg.channel.send("Oh Donald, you brute!")
+				msg.channel.send("Oh Donald, you brute!",{ files: ["./Pictures/Rudy_curse.png"] })
 				break;
 				}
 	}
