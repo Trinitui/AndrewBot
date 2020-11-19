@@ -142,7 +142,7 @@ client.on('message',msg => {
 				msg.channel.send("ALL THE NETWORKS!!!")
 				break;
 			case 4:
-				msg.channel.send("This is not a fraud case")
+				msg.channel.send("This is not a fraud case",{ files: ["./Pictures/Rudy_1.png"] })
 				break;
 			case 0: 
 				msg.channel.send("Oh Donald, you brute!")
