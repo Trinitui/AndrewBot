@@ -131,7 +131,7 @@ client.on('message',msg => {
 //5.x Rudy functionality
 client.on('message',msg => {
 	if (msg.content.includes('Rudy')){
-		switch (Math.floor(Math.random()*4)) {
+		switch (Math.floor(Math.random()*5)) {
 			case 1:
 				msg.channel.send("Those votes were from Mickey Mouse!")
 				break;
@@ -143,6 +143,9 @@ client.on('message',msg => {
 				break;
 			case 4:
 				msg.channel.send("This is not a fraud case")
+				break;
+			case 0: 
+				msg.channel.send("Oh Donald, you brute!")
 				break;
 				}
 	}
