@@ -128,9 +128,23 @@ client.on('message',msg => {
 	}
 });
 
+//5.x Rudy functionality
 client.on('message',msg => {
 	if (msg.content.includes('Rudy')){
-		msg.channel.send(`Those votes were from Mickey Mouse!`)
+		switch (Math.floor(Math.random()*4)) {
+			case 1:
+				msg.channel.send("Those votes were from Mickey Mouse!")
+				break;
+			case 2:
+				msg.channel.send("What does opacity mean? It probably means you can see.");
+				break;
+			case 3:
+				msg.channel.send("ALL THE NETWORKS!!!")
+				break;
+			case 4:
+				msg.channel.send("This is not a fraud case")
+				break;
+				}
 	}
 });
 
