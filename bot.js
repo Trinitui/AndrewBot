@@ -190,15 +190,13 @@ client.on('message',msg => {
 
 // 7. SpaceX integration
 client.on('message',msg => {
-	if (msg.content.startsWith('!SpaceX')){
-		let q = msg.content;
-		// For Upcoming:
-		if (q.includes("latest")) {
+	if (msg.content.includes('SpaceX-latest')){
 			axios.get(`https://api.spacexdata.com/v4/launches/latest`)
 			.then(response => {
 				let image = response.data.flickr.original[0]
 				msg.channel.send(response.data.name)
 				msg.channel.send(response.data.patch.large)
 				msg.channel.send(image)
-			}}}})
-		//send output to channel
+			})
+		}
+	})
