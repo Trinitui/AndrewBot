@@ -10,6 +10,7 @@
 // 3. Generate a new Gex Quote (why...)
 // 4. Return a Nightcore song when asked
 // 5. Return a robot emoji when AndrewBot is mentioned. This is to quickly check bot status
+// 5.x AndrewBot sends out a crazed response from tragic Trump lawyer Rudy Giuliani
 // 6. Playing around with new NPM Libraries, this time the holy-bible one for some reason.
 //
 //
@@ -131,24 +132,27 @@ client.on('message',msg => {
 //5.x Rudy functionality
 client.on('message',msg => {
 	if (msg.content.includes('Rudy')){
-		switch (Math.floor(Math.random()*6)) {
+		switch (Math.floor(Math.random() * 7)) {
 			case 1:
-				msg.channel.send("Those votes were from Mickey Mouse!")
+				msg.channel.send("'Those votes were from Mickey Mouse!'")
 				break;
 			case 2:
-				msg.channel.send("What does opacity mean? It probably means you can see.",{ files: ["./Pictures/Rudy_2.jpeg"] });
+				msg.channel.send("'What does opacity mean? It probably means you can see.'",{ files: ["./Pictures/Rudy_2.jpeg"] });
 				break;
 			case 3:
-				msg.channel.send("ALL THE NETWORKS!!!",{ files: ["./Pictures/Rudy_all.jpg"] })
+				msg.channel.send("'ALL THE NETWORKS!!!'",{ files: ["./Pictures/Rudy_all.jpg"] })
 				break;
 			case 4:
-				msg.channel.send("This is not a fraud case",{ files: ["./Pictures/Rudy_1.png"] })
+				msg.channel.send("'This is not a fraud case'",{ files: ["./Pictures/Rudy_1.png"] })
 				break;
 			case 5:
-				msg.channel.send("I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.",{ files: ["./Pictures/Rudy_3.png"]} )
+				msg.channel.send("'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'",{ files: ["./Pictures/Rudy_3.png"]} )
+				break;
+			case 6:
+				msg.channel.send("'There is nobody here that engages in fantasies'",{ files: ["./Pictures/Rudy_4.png"]})
 				break;
 			case 0: 
-				msg.channel.send("Oh Donald, you brute!",{ files: ["./Pictures/Rudy_curse.jpg"] })
+				msg.channel.send("'Oh Donald, you brute!'",{ files: ["./Pictures/Rudy_curse.jpg"] })
 				break;
 				}
 	}
@@ -157,6 +161,7 @@ client.on('message',msg => {
 // 6. Playing around with the Bible NPM library. Might do more here but :shrug:
 client.on('message',msg => {
 	if(msg.content.startsWith('Matthew')) {
+		//msg.content = Matthew 4:13 = "quote from Bible"
 		bible.get(msg.toString())
 		.then(function (res) {
 			msg.channel.send(res.text)
@@ -182,3 +187,18 @@ client.on('message',msg => {
 	}
 	
 })
+
+// 7. SpaceX integration
+client.on('message',msg => {
+	if (msg.content.startsWith('!SpaceX')){
+		let q = msg.content;
+		// For Upcoming:
+		if (q.includes("latest")) {
+			axios.get(`https://api.spacexdata.com/v4/launches/latest`)
+			.then(response => {
+				let image = response.data.flickr.original[0]
+				msg.channel.send(response.data.name)
+				msg.channel.send(response.data.patch.large)
+				msg.channel.send(image)
+			}}}})
+		//send output to channel
