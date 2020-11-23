@@ -196,6 +196,12 @@ client.on('message',msg => {
 				msg.channel.send(response.data.name)
 				let image = response.data.links.flickr.original[0]
 				msg.channel.send(image)
+				
+				let imageArr = []
+				for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
+					imageArr.push(response.data.links.flickr.original[i])
+				}
+				msg.channel.send(imageArr)
 			})
 		}
 	})
