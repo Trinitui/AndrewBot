@@ -199,7 +199,8 @@ client.on('message',msg => {
 				for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
 					imageArr.push(response.data.links.flickr.original[i])
 				}
-				msg.channel.send("Images from Launch: "+imageArr)
+				msg.channel.send("Images from Launch: ")
+				msg.channel.send(imageArr)
 			})
 		}
 	})
