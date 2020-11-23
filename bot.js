@@ -193,10 +193,10 @@ client.on('message',msg => {
 	if (msg.content.includes('SpaceX-latest')){
 			axios.get(`https://api.spacexdata.com/v4/launches/latest`)
 			.then(response => {
-				let image = response.data.flickr.original[0]
+				//let image = response.data.flickr.original[0]
 				msg.channel.send(response.data.name)
 				msg.channel.send(response.data.patch.large)
-				msg.channel.send(image)
+				//msg.channel.send(image)
 			})
 		}
 	})
