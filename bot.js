@@ -207,11 +207,12 @@ client.on('message',msg => {
 	if (msg.content.includes('SpaceX-upcoming')) {
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
+			let nextarr = [];
 			for (var j = 0; j <= response.data.length; j++) {
-				msg.channel.send("Next Launch: "+ response.data[j].name)
-				msg.channel.send('Next Launch Date: '+ response.data[j].date_local)
+				nextarr.push("Next Launch: "+ response.data[j].name)
+				nextarr.push('Next Launch Date: '+ response.data[j].date_local)
 			}
-			
+			msg.channel.send(nextarr)
 		})
 	}
 	})
