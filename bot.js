@@ -203,4 +203,15 @@ client.on('message',msg => {
 				msg.channel.send(imageArr)
 			})
 		}
+
+	if (msg.content.includes('SpaceX-upcoming')) {
+		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
+		.then(response => {
+			for (var j = 0; j <= response.data.length; j++) {
+				msg.channel.send("Next Launch: "+ response.data[j].name)
+				msg.channel.send('Next Launch Date: '+ response.data[j].date_local)
+			}
+			
+		})
+	}
 	})
