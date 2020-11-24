@@ -209,8 +209,9 @@ client.on('message',msg => {
 		.then(response => {
 			let nextarr = [];
 			for (var j = 0; j <= response.data.length; j++) {
-				nextarr.push("Next Launch: "+ response.data[j].name)
-				nextarr.push('Next Launch Date: '+ response.data[j].date_local)
+				let a = response.data[j].name
+				let b = response.data[j].date_local
+				nextarr = nextarr.push("Next Launch: "+a,"Next Launch Date: "+b)
 			}
 			msg.channel.send(nextarr)
 		})
