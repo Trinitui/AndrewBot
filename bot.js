@@ -211,7 +211,7 @@ client.on('message',msg => {
 			for (var j = 0; j <= response.data.length; j++) {
 				let a = response.data[j].name
 				let b = response.data[j].date_local
-				nextarr = nextarr.push("Next Launch: "+a,"Next Launch Date: "+b)
+				nextarr.push("Next Launch: "+a,"Next Launch Date: "+b)
 			}
 			msg.channel.send(nextarr)
 		})
