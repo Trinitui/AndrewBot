@@ -12,7 +12,7 @@
 // 5. Return a robot emoji when AndrewBot is mentioned. This is to quickly check bot status
 // 5.x AndrewBot sends out a crazed response from tragic Trump lawyer Rudy Giuliani
 // 6. Playing around with new NPM Libraries, this time the holy-bible one for some reason.
-//
+// 7. Added SpaceX API integration, now you can type in some commands and get results.
 //
 //
 // If you want to add something new, submit an issue first. 
@@ -205,12 +205,12 @@ client.on('message',msg => {
 		}
 
 	if (msg.content.includes('SpaceX-upcoming')) {
-		let nextarr = [];
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
 		    let a  = response.data[0].name
         let b = response.data[0].date_local
-        msg.channel.send("Next Launch Name: "+a, "Next Launch Date: "+b)
+		msg.channel.send("Next Launch Name: "+a)
+		msg.channel.send("Next Launch Date: "+b)
 			})
 	}
 	})
