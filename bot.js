@@ -205,9 +205,9 @@ client.on('message',msg => {
 		}
 
 	if (msg.content.includes('SpaceX-upcoming')) {
+		let nextarr = [];
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
-			let nextarr = [];
 			for (var j = 0; j <= response.data.length; j++) {
 				let a = response.data[j].name
 				let b = response.data[j].date_local
