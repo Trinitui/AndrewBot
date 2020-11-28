@@ -209,8 +209,9 @@ client.on('message',msg => {
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
 			for (var j = 0; j <= response.data.length; j++) {
-				let a = response.data[j].name
-				let b = response.data[j].date_local
+				let working = response.data[j]
+				let a = working.name
+				let b = working.date_local
 				nextarr.push("Next Launch: "+a,"Next Launch Date: "+b)
 			}
 			msg.channel.send(nextarr)
