@@ -200,7 +200,7 @@ client.on('message',msg => {
 					imageArr.push(response.data.links.flickr.original[i])
 				}
 				msg.channel.send("Images from Launch: ")
-				msg.channel.send(imageArr)
+				msg.channel.send(imageArr ? imageArr : "Sorry, no images at this time.")
 			})
 		}
 
@@ -208,13 +208,9 @@ client.on('message',msg => {
 		let nextarr = [];
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
-			for (var j = 0; j <= response.data.length; j++) {
-				let working = response.data[j]
-				let a = working.name
-				let b = working.date_local
-				nextarr.push("Next Launch: "+a,"Next Launch Date: "+b)
-			}
-			msg.channel.send(nextarr)
-		})
+		    let a  = response.data[0].name
+        let b = response.data[0].date_local
+        msg.channel.send("Next Launch Name: "+a, "Next Launch Date: "+b)
+			})
 	}
 	})
