@@ -229,7 +229,7 @@ client.on('message',msg => {
 			CoreObj.serial = response.data[i].serial
 			CoreObj.last_update = response.data[i].last_update
 			CoreObj.reuse_count = response.data[i].reuse_count
-			console.log(CoreObj)
+			msg.channel.send(CoreObj)
 		  }
 		})
 	}
