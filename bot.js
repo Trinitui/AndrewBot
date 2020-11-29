@@ -213,4 +213,26 @@ client.on('message',msg => {
 		msg.channel.send("Next Launch Date: "+b)
 			})
 	}
-	})
+	
+	let CoreObj = {
+		serial: '',
+		last_update: '',
+		reuse_count: ''
+	  }
+
+	if (msg.content.includes('SpaceX-spam')) {
+		axios.get('https://api.spacexdata.com/v4/cores')
+		.then(response => {
+		  for (var i = 0; i <= response.data.length; i++) {
+			//serialArr.push(response.data[i].serial)
+			//lastUpdateArr.push(response.data[i].last_update)
+			CoreObj.serial = response.data[i].serial
+			CoreObj.last_update = response.data[i].last_update
+			CoreObj.reuse_count = response.data[i].reuse_count
+			console.log(CoreObj)
+		  }
+		})
+	}
+
+})
+
