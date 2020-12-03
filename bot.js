@@ -208,7 +208,7 @@ client.on('message',msg => {
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
 		    let a  = response.data[0].name
-        let b = response.data[0].date_local
+        	let b = response.data[0].date_local
 		msg.channel.send("Next Launch Name: "+a)
 		msg.channel.send("Next Launch Date: "+b)
 			})
