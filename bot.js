@@ -53,7 +53,7 @@ client.login(process.env.DISCORD_TOKEN);
 //1. This is a basic test of the bot. Users says Ping, bot says Pong.
 client.on('message', msg => {
   if (msg.content === 'ping') {
-    msg.reply('**pong**');
+    msg.reply('**pong at AWS**');
   }
 });
 
@@ -213,7 +213,7 @@ client.on('message',msg => {
 		msg.channel.send("Next Launch Date: "+b)
 			})
 	}
-	
+	// This isn't working quite right yet
 	let CoreObj = {
 		serial: '',
 		last_update: '',
