@@ -1,8 +1,8 @@
 {
-  "name": "AndrewBot",
+  "name": "andrewbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
