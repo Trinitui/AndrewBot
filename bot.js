@@ -238,7 +238,7 @@ client.on('message',msg => {
 				"url": imageArr[1]
 			}
 		}
-		msg.channel.send(undefined,false,data)
+		msg.channel.send("embed",data)
 	})
 	}
 
