@@ -220,18 +220,26 @@ client.on('message',msg => {
 		reuse_count: ''
 	  }
 
-	if (msg.content.includes('SpaceX-spam')) {
-		axios.get('https://api.spacexdata.com/v4/cores')
-		.then(response => {
-		  for (var i = 0; i <= response.data.length; i++) {
-			//serialArr.push(response.data[i].serial)
-			//lastUpdateArr.push(response.data[i].last_update)
-			CoreObj.serial = response.data[i].serial
-			CoreObj.last_update = response.data[i].last_update
-			CoreObj.reuse_count = response.data[i].reuse_count
-			msg.channel.send(CoreObj)
-		  }
-		})
+	if (msg.content.includes('SpaceX-experimental')) {
+		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
+				.then(response => {
+					//msg.channel.send("Launch Name: "+response.data.name)
+					//msg.channel.send("Local time: "+response.data.date_local)
+					let imageArr = []
+					for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
+						imageArr.push(response.data.links.flickr.original[i])
+					}
+		let data = {
+			"title": "SpaceX's Latest Launch",
+			"description": response.data.name,
+			"date": response.data.date_local,
+			"images": {
+				"url": imageArr[0],
+				"url": imageArr[1]
+			}
+		}
+		msg.channel.send(undefined,false,data)
+	})
 	}
 
 })
