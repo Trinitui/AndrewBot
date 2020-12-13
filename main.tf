@@ -22,7 +22,7 @@ resource "null_resource" "example" {
 }
 
 provider "aws" {
-  version = "2.33.0"
+  #version = "2.33.0"
   region = aws_region
 }
 
