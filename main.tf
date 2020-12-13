@@ -49,7 +49,7 @@ resource "aws_s3_bucket_object" "dist_item" {
 }
 
 module "elastic_beanstalk_application" {
-    source      = "git@github.com/Trinitui/AndrewBot.git"
+    source      = "git::https://github.com/Trinitui/AndrewBot.git"
     namespace   = "AndrewBot"
     stage       = "prod"
     name        = "app"
@@ -57,7 +57,7 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = "git@github.com/Trinitui/AndrewBot.git"
+    source                             = "git::https://github.com/Trinitui/AndrewBot.git"
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
@@ -78,6 +78,7 @@ module "elastic_beanstalk_environment" {
     // https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.docker
     solution_stack_name = "64bit Amazon Linux 2018.03 v2.12.17 running Docker 18.06.1-ce"
 }
+
 
 resource "aws_elastic_beanstalk_application_version" "default" {
   name        = "AndrewBot-prod-${uuid()}"
