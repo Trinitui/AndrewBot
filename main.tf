@@ -57,7 +57,7 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = "git@https://github.com/Trinitui/AndrewBot.git?ref=master"
+    source                             = "git@https://github.com/Trinitui/AndrewBot.git"
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
