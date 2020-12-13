@@ -49,7 +49,7 @@ resource "aws_s3_bucket_object" "dist_item" {
 }
 
 module "elastic_beanstalk_application" {
-    source      = "git@https://github.com/Trinitui/AndrewBot.git"
+    source      = "git@github.com/Trinitui/AndrewBot.git"
     namespace   = "AndrewBot"
     stage       = "prod"
     name        = "app"
@@ -57,7 +57,7 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = "git@https://github.com/Trinitui/AndrewBot.git"
+    source                             = "git@github.com/Trinitui/AndrewBot.git"
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
