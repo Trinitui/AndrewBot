@@ -59,6 +59,7 @@ client.on('message', msg => {
 
 //2. This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
+	if (msg.content === "gex") {
 	switch (Math.floor(Math.random()*11)) {
 		case 1:
 			msg.channel.send("<:gx:743242684281389176> "+"Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
@@ -91,10 +92,7 @@ client.on('message', msg => {
 			msg.channel.send("<:gx:743242684281389176> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 			break;
 			}
-	}
-
-	
-});
+	}});
 
 // 4. This gets a nightcore song when the user asks for one, using !nightcore*
 client.on('message', msg => {
