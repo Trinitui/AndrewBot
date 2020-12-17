@@ -200,7 +200,7 @@ client.on('message',msg => {
 			for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
 				imageArr.push(response.data.links.flickr.original[i])
 			}
-			let randy = Math.floor(Math.random() * response.data.links.flickr.original.length;
+			let randy = Math.floor(Math.random() * response.data.links.flickr.original.length);
 msg.channel.send(
 		{"embed": 
 			{
@@ -220,13 +220,7 @@ msg.channel.send(
 })
 })
 }
-	}
-	// This isn't working quite right yet
-	let CoreObj = {
-		serial: '',
-		last_update: '',
-		reuse_count: ''
-	  }
+	})
 
 	if (msg.content.includes('SpaceX-experimental')) {
 		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
@@ -256,6 +250,4 @@ msg.channel.send(
 })
 	})
 	}
-
-})
 
