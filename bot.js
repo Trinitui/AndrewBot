@@ -59,51 +59,42 @@ client.on('message', msg => {
 
 //2. This function handles user's pressing needs to get a Gex quote. 
 client.on('message', msg => {
-  if (msg.content.includes('gex')) {
-    msg.channel.send("<:gx:743242684281389176> "+gexArr[Math.floor(Math.random()*gexArr.length)]);
-  }
-});
-
-
-//3. This is for the new gex quotes
-client.on('message',msg => {
-	if (msg.content.includes("newquote")) {
-switch (Math.floor(Math.random()*10)) {
-	case 1:
-		msg.channel.send("<:gx:743242684281389176> "+"Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
-		break;
-	case 2:
-		msg.channel.send("<:gx:743242684281389176> "+"Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
-		break;
-	case 3:
-		msg.channel.send("<:gx:743242684281389176> "+"Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
-		break;
-	case 4:
-		msg.channel.send("<:gx:743242684281389176> "+"Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
-		break;
-	case 5:
-		msg.channel.send("<:gx:743242684281389176> "+"Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
-		break;
-	case 6:
-		msg.channel.send("<:gx:743242684281389176> "+"Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
-		break;
-	case 7:
-		msg.channel.send("<:gx:743242684281389176> "+"I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
-		break;
-	case 8:
-		msg.channel.send("<:gx:743242684281389176> "+"This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
-		break;
-	case 9:
-		msg.channel.send("<:gx:743242684281389176> "+"This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
-		break;
-	case 0:
-		msg.channel.send("<:gx:743242684281389176> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
-		break;
-		}
-	}
-	
-	
-});
+	switch (Math.floor(Math.random()*11)) {
+		case 1:
+			msg.channel.send("<:gx:743242684281389176> "+"Has anyone seen "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in here?")
+			break;
+		case 2:
+			msg.channel.send("<:gx:743242684281389176> "+"Note to self: don\'t go to a party at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+			break;
+		case 3:
+			msg.channel.send("<:gx:743242684281389176> "+"Reminds me of "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+			break;
+		case 4:
+			msg.channel.send("<:gx:743242684281389176> "+"Don't take career advice from "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+".")
+			break;
+		case 5:
+			msg.channel.send("<:gx:743242684281389176> "+"Ladies and Gentlemen, I present "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"!")
+			break;
+		case 6:
+			msg.channel.send("<:gx:743242684281389176> "+"Is it just me or does anyone feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" is "+actionArr[Math.floor(Math.random()*actionArr.length)]+"?")
+			break;
+		case 7:
+			msg.channel.send("<:gx:743242684281389176> "+"I feel like "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".");
+			break;
+		case 8:
+			msg.channel.send("<:gx:743242684281389176> "+"This is like "+actionArr[Math.floor(Math.random()*actionArr.length)]+" at "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+			break;
+		case 9:
+			msg.channel.send("<:gx:743242684281389176> "+"This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
+			break;
+		case 10:
+			msg.channel.send("<:gx:743242684281389176> "+gexArr[Math.floor(Math.random()*gexArr.length)]);
+			break;
+		case 0:
+			msg.channel.send("<:gx:743242684281389176> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
+			break;
+			}
+	})
 
 // 4. This gets a nightcore song when the user asks for one, using !nightcore*
 client.on('message', msg => {
@@ -214,11 +205,6 @@ client.on('message',msg => {
 			})
 	}
 	// This isn't working quite right yet
-	let CoreObj = {
-		serial: '',
-		last_update: '',
-		reuse_count: ''
-	  }
 
 	if (msg.content.includes('SpaceX-experimental')) {
 		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
@@ -238,13 +224,21 @@ client.on('message',msg => {
 				"url": imageArr[1]
 			}
 		}
-		msg.channel.send("embed",{"embed": {"title": "SpaceX's Latest Launch",
-		"description": response.data.name,
-		"date": response.data.date_local,
-		"image": {
-			"url": imageArr[0],
-			"url": imageArr[1]
-		}}})
+		msg.channel.send("embed",
+		{"embed": {
+			"title": "SpaceX's Latest Launch",
+			"description": response.data.name,
+			"color": 10800497,
+			"fields":[
+				{
+				"name":"date",
+				"value": `${response.data.date_local}`
+				}
+					],
+			"image": {
+				"url": `${imageArr[0]}`,
+			}
+	}})
 	})
 	}
 
