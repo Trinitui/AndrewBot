@@ -87,14 +87,14 @@ client.on('message', msg => {
 		case 9:
 			msg.channel.send("<:gx:743242684281389176> "+"This place is bigger than "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+"'s "+actionArr[Math.floor(Math.random()*actionArr.length)]+".")
 			break;
-		case 10:
-			msg.channel.send("<:gx:743242684281389176> "+gexArr[Math.floor(Math.random()*gexArr.length)]);
-			break;
 		case 0:
 			msg.channel.send("<:gx:743242684281389176> "+"This is worse than finding "+peopleArr[Math.floor(Math.random()*peopleArr.length)]+" in a "+placeArr[Math.floor(Math.random()*placeArr.length)]+".")
 			break;
 			}
-	})
+	}
+
+	
+});
 
 // 4. This gets a nightcore song when the user asks for one, using !nightcore*
 client.on('message', msg => {
@@ -205,6 +205,11 @@ client.on('message',msg => {
 			})
 	}
 	// This isn't working quite right yet
+	let CoreObj = {
+		serial: '',
+		last_update: '',
+		reuse_count: ''
+	  }
 
 	if (msg.content.includes('SpaceX-experimental')) {
 		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
@@ -224,21 +229,13 @@ client.on('message',msg => {
 				"url": imageArr[1]
 			}
 		}
-		msg.channel.send("embed",
-		{"embed": {
-			"title": "SpaceX's Latest Launch",
+		msg.channel.send("embed",{"embed": {"title": "SpaceX's Latest Launch",
 			"description": response.data.name,
-			"color": 10800497,
-			"fields":[
-				{
-				"name":"date",
-				"value": `${response.data.date_local}`
-				}
-					],
+		"date": response.data.date_local,
 			"image": {
-				"url": `${imageArr[0]}`,
-			}
-	}})
+			"url": imageArr[0],
+			"url": imageArr[1]
+		}}})
 	})
 	}
 
