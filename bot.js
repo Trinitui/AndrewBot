@@ -227,13 +227,23 @@ client.on('message',msg => {
 				"url": imageArr[1]
 			}
 		}
-		msg.channel.send("embed",{"embed": {"title": "SpaceX's Latest Launch",
-			"description": response.data.name,
-		"date": response.data.date_local,
-			"image": {
-			"url": imageArr[0],
-			"url": imageArr[1]
-		}}})
+		msg.channel.send(
+				{"embed": 
+					{
+						"title": "SpaceX's Latest Launch",
+					"description": response.data.name,
+					"fields": [
+						{
+							"name": "date",
+							"value": `${response.data.date_local}`
+						}
+						],
+					"image": 
+					{
+					"url": imageArr[0],
+					}
+				}
+})
 	})
 	}
 
