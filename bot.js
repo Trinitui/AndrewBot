@@ -196,11 +196,30 @@ client.on('message',msg => {
 	if (msg.content.includes('SpaceX-upcoming')) {
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 		.then(response => {
-		    let a  = response.data[0].name
-        	let b = response.data[0].date_local
-		msg.channel.send("Next Launch Name: "+a)
-		msg.channel.send("Next Launch Date: "+b)
-			})
+			let imageArr = []
+			for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
+				imageArr.push(response.data.links.flickr.original[i])
+			}
+			let randy = Math.floor(Math.random() * response.data.links.flickr.original.length;
+msg.channel.send(
+		{"embed": 
+			{
+				"title": "SpaceX's Latest Launch",
+			"description": response.data.name,
+			"fields": [
+				{
+					"name": "Date",
+					"value": `${response.data.date_local}`
+				}
+				],
+			"image": 
+			{
+			"url": imageArr[randy],
+			}
+		}
+})
+})
+}
 	}
 	// This isn't working quite right yet
 	let CoreObj = {
@@ -218,15 +237,6 @@ client.on('message',msg => {
 					for (var i = 0; i<= response.data.links.flickr.original.length; i++) {
 						imageArr.push(response.data.links.flickr.original[i])
 					}
-		let data = {
-			"title": "SpaceX's Latest Launch",
-			"description": response.data.name,
-			"date": response.data.date_local,
-			"images": {
-				"url": imageArr[0],
-				"url": imageArr[1]
-			}
-		}
 		msg.channel.send(
 				{"embed": 
 					{
@@ -234,7 +244,7 @@ client.on('message',msg => {
 					"description": response.data.name,
 					"fields": [
 						{
-							"name": "date",
+							"name": "Date",
 							"value": `${response.data.date_local}`
 						}
 						],
