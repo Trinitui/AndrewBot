@@ -25,7 +25,7 @@ provider "aws" {
 # create a zip of your deployment with terraform
 data "archive_file" "api_dist_zip" {
   type        = "zip"
-  source_file = "${path.root}"
+  source_file = `${path.root}`
   output_path = "${path.root}.zip"
 }
 
@@ -48,7 +48,7 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = module.elastic_beanstalk_application.source
+    source                             = "git::https://github.com/cloudposse/terraform-aws-elastic-beanstalk-environment.git?ref=master"
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
