@@ -81,6 +81,7 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
       working-directory: ./Terraform
+      continue-on-error: true
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
