@@ -15,15 +15,6 @@ terraform {
     }
 }
 
-#resource "null_resource" "example" {
-#    triggers = {
-#        value = "A example resource that does nothing!"
-#    }
-#}
-
-
-
-
 provider "aws" {
   #version = "2.33.0"
     region = aws_region
@@ -34,8 +25,8 @@ provider "aws" {
 # create a zip of your deployment with terraform
 data "archive_file" "api_dist_zip" {
   type        = "zip"
-  source_file = "${path.root}/${var.api_dist}"
-  output_path = "${path.root}/${var.api_dist}.zip"
+  source_file = "${path.root}"
+  output_path = "${path.root}.zip"
 }
 
 resource "aws_s3_bucket" "dist_bucket" {
