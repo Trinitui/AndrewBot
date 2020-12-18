@@ -17,7 +17,7 @@ resource "aws_s3_bucket_object" "dist_item" {
 }
 
 module "elastic_beanstalk_application" {
-    source      = "github.com/cloudposse/terraform-aws-elastic-beanstalk-application?ref=tags/v0.7.1"
+    source      = "git::https://github.com/cloudposse/terraform-aws-elastic-beanstalk-application?ref=tags/v0.7.1"
     namespace   = "AndrewBot"
     stage       = "prod"
     name        = "AndrewBotapp"
@@ -25,7 +25,7 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = "github.com/cloudposse/terraform-aws-elastic-beanstalk-environment?ref=tags/v0.31.0"
+    source                             = "git::https://github.com/cloudposse/terraform-aws-elastic-beanstalk-environment?ref=tags/v0.31.0"
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
