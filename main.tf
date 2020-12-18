@@ -25,7 +25,7 @@ provider "aws" {
 # create a zip of your deployment with terraform
 data "archive_file" "api_dist_zip" {
   type        = "zip"
-  source_file = `${path.root}`
+  source_file = "${path.root}"
   output_path = "${path.root}.zip"
 }
 
