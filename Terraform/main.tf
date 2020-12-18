@@ -21,7 +21,6 @@ module "elastic-beanstalk-application" {
   version = "0.7.1"
   # insert the 1 required variable here
 }
-
 module "elastic_beanstalk_application" {
   source      = "cloudposse/elastic-beanstalk-application/aws"
   version     = "0.7.1"
@@ -32,8 +31,8 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-  source      = "cloudposse/elastic-beanstalk-environment/aws"
-  version     = "0.31.0"
+  source                             = "cloudposse/elastic-beanstalk-environment/aws"
+  version                            = "0.31.0"
   namespace                          = "AndrewBot"
   stage                              = "prod"
   name                               = "app"
