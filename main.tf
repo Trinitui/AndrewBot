@@ -43,12 +43,12 @@ module "elastic_beanstalk_application" {
     source      = "git::https://github.com/Trinitui/AndrewBot.git"
     namespace   = "AndrewBot"
     stage       = "prod"
-    name        = "app"
+    name        = "AndrewBotapp"
     description = "Test elastic_beanstalk_application"
 }
 
 module "elastic_beanstalk_environment" {
-    source                             = "git::https://github.com/Trinitui/AndrewBot.git"
+    source                             = module.elastic_beanstalk_application.source
     namespace                          = "AndrewBot"
     stage                              = "prod"
     name                               = "app"
