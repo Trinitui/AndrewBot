@@ -1,5 +1,3 @@
-variable "hostname" {}
-variable "organization" {}
 variable "region" {
   type        = string
   description = "AWS region"

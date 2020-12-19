@@ -1,6 +1,6 @@
-region = "us-east-1"
-availability_zones = ["us-east-1a", "us-east-1b"]
-namespace = "pjt20201219"
+region = "us-east-2"
+availability_zones = ["us-east-2a", "us-east-2b"]
+namespace = "AndrewBot"
 stage = "test"
 name = "elastic-beanstalk-env"
 description = "Test elastic-beanstalk-environment"
