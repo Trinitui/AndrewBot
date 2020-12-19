@@ -41,8 +41,8 @@ module "elastic_beanstalk_environment" {
   region                             = var.aws_region
   availability_zone_selector         = "Any 2"
   elastic_beanstalk_application_name = module.elastic_beanstalk_application.elastic_beanstalk_application_name
-  application_subnets = "n/a"
-  vpc_id = "n/a"
+  application_subnets = ""
+  vpc_id = ""
 
   instance_type           = "t3.small"
   autoscale_min           = 1
