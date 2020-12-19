@@ -50,9 +50,6 @@ on:
       - main
   pull_request:
 
-defaults:
-  working-directory: ./Terraform
-
 jobs:
   terraform:
     name: 'Terraform'
@@ -78,21 +75,26 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init -backend-config=backend.tfvars
+        working-directory: ./Terraform
 
       # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
         continue-on-error: true
+        working-directory: ./Terraform
 
       #Checks if Terraform configuration is valid.
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        working-directory: ./Terraform
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         run: terraform plan -no-color
+        working-directory: ./Terraform
+
 
       # Adds execution comments to Pull Requests
       - name: Terraform PR
@@ -122,3 +124,4 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
+        working-directory: ./Terraform
