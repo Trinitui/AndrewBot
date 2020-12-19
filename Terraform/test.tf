@@ -11,7 +11,7 @@ module "vpc" {
   cidr_block = "172.16.0.0/16"
 }
 
-module "dynamic-subnets" {
+module "dynamic_subnets" {
   source  = "cloudposse/dynamic-subnets/aws"
   version = "0.33.0"
   # insert the 13 required variables here
@@ -29,7 +29,7 @@ module "dynamic-subnets" {
   nat_instance_enabled = false
 }
 
-module "elastic-beanstalk-application" {
+module "elastic_beanstalk_application" {
   source  = "cloudposse/elastic-beanstalk-application/aws"
   version = "0.8.0"
   # insert the 9 required variables here
@@ -42,7 +42,7 @@ module "elastic-beanstalk-application" {
   description = "Test elastic_beanstalk_application"
 }
 
-module "elastic-beanstalk-environment" {
+module "elastic_beanstalk_environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
   version = "0.31.0"
   # insert the 7 required variables here
@@ -77,8 +77,8 @@ module "elastic-beanstalk-environment" {
   autoscale_upper_bound     = var.autoscale_upper_bound
   autoscale_upper_increment = var.autoscale_upper_increment
   vpc_id                  = module.vpc.vpc_id
-  loadbalancer_subnets    = module.subnets.public_subnet_ids
-  application_subnets     = module.subnets.private_subnet_ids
+  loadbalancer_subnets    = module.dynamic_subnets.public_subnet_ids
+  application_subnets     = module.dynamic_subnets.private_subnet_ids
   allowed_security_groups = [module.vpc.vpc_default_security_group_id]
   rolling_update_enabled  = var.rolling_update_enabled
   rolling_update_type     = var.rolling_update_type
