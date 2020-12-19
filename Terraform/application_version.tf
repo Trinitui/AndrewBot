@@ -1,7 +1,7 @@
 data "archive_file" "api_dist_zip" {
   type        = "zip"
-  source_dir = "./AndrewBot"
-  output_path = "${path.root}.zip"
+  source_dir = "${path.cwd}/../AndrewBot"
+  output_path = "AndrewBot.zip"
 }
 
 resource "aws_s3_bucket" "dist_bucket" {
