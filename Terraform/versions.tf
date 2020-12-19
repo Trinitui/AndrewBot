@@ -6,7 +6,7 @@ terraform {
       version = "= 2.70"
     }
     local = {
-      source = "hashicorp/aws"
+      source = "hashicorp/local"
       version = "= 1.4"
     }
     null = {
