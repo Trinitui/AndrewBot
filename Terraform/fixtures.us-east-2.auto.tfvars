@@ -1,6 +1,6 @@
 region = "us-east-1"
 availability_zones = ["us-east-1a", "us-east-1b"]
-namespace = "AndrewBot-NotSwayze"
+namespace = "pjt20201219"
 stage = "test"
 name = "elastic-beanstalk-env"
 description = "Test elastic-beanstalk-environment"
