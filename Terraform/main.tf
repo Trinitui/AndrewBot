@@ -19,6 +19,7 @@ resource "aws_s3_bucket_object" "dist_item" {
 module "elastic-beanstalk-application" {
   source  = "cloudposse/elastic-beanstalk-application/aws"
   version = "0.7.1"
+  name        = "AndrewBotapp"
   # insert the 1 required variable here
 }
 module "elastic_beanstalk_application" {
