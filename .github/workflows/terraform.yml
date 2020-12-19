@@ -59,6 +59,7 @@ jobs:
     defaults:
       run:
         shell: bash
+      working-directory: ./Terraform
 
     steps:
       # Checkout the repository to the GitHub Actions runner
