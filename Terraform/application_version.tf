@@ -17,7 +17,7 @@ resource "aws_s3_bucket_object" "dist_item" {
 
 resource "aws_elastic_beanstalk_application_version" "default" {
   name        = "AndrewBot-prod-${uuid()}"
-  application = module.elastic_beanstalk_application.app_name
+  application = module.elastic_beanstalk_application.elastic_beanstalk_application_name
   description = "application version created by terraform"
   bucket      = aws_s3_bucket.dist_bucket.id
   key         = aws_s3_bucket_object.dist_item.id
