@@ -51,6 +51,18 @@ on:
   pull_request:
 
 jobs:
+  NodeJs-Test-and-lint:
+    name: NodeJS Test and Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: npm test
+        uses: actions/checkout@master
+        with:
+          args: run test
+      - name: npm lint
+        uses: actions/checkout@master
+        with:
+          args: run lint
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
