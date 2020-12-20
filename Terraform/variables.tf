@@ -8,6 +8,7 @@ variable "availability_zones" {
 }
 variable "namespace" {
   type        = string
+  default     = "andrewbot"
   description = "Namespace, which could be your organization name, e.g. 'eg' or 'cp'"
 }
 variable "stage" {
