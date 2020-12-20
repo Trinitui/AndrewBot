@@ -25,16 +25,16 @@ module "elastic-beanstalk-application" {
 module "elastic_beanstalk_application" {
   source      = "cloudposse/elastic-beanstalk-application/aws"
   version     = "0.7.1"
-  namespace   = "AndrewBot"
+  namespace   = "andrewbot"
   stage       = "prod"
-  name        = "AndrewBotapp"
+  name        = "andrewbotapp"
   description = "Test elastic_beanstalk_application"
 }
 
 module "elastic_beanstalk_environment" {
   source                             = "cloudposse/elastic-beanstalk-environment/aws"
   version                            = "0.31.0"
-  namespace                          = "AndrewBot"
+  namespace                          = "andrewbot"
   stage                              = "prod"
   name                               = "app"
   description                        = "Test elastic_beanstalk_environment"
@@ -58,7 +58,7 @@ module "elastic_beanstalk_environment" {
 }
 
 resource "aws_elastic_beanstalk_application_version" "default" {
-  name        = "AndrewBot-prod-${uuid()}"
+  name        = "andrewbot-prod-${uuid()}"
   application = module.elastic_beanstalk_application.app_name
   description = "application version created by terraform"
   bucket      = aws_s3_bucket.dist_bucket.id
