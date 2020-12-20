@@ -1,66 +1,96 @@
-# create a zip of your deployment with terraform
-data "archive_file" "api_dist_zip" {
-  type        = "zip"
-  source_file = "${path.cwd}/../AndrewBot"
-  output_path = "${path.cwd}.zip"
+module "vpc" {
+  source  = "cloudposse/vpc/aws"
+  version = "0.18.1"
+  # insert the 11 required variables here
+  namespace  = var.namespace
+  stage      = var.stage
+  name       = var.name
+  attributes = var.attributes
+  tags       = var.tags
+  delimiter  = var.delimiter
+  cidr_block = "172.16.0.0/16"
 }
 
-resource "aws_s3_bucket" "dist_bucket" {
-  bucket = "${var.namespace}-elb-dist"
-  acl    = "private"
+module "dynamic_subnets" {
+  source  = "cloudposse/dynamic-subnets/aws"
+  version = "0.33.0"
+  # insert the 13 required variables here
+  availability_zones   = var.availability_zones
+  namespace            = var.namespace
+  stage                = var.stage
+  name                 = var.name
+  attributes           = var.attributes
+  tags                 = var.tags
+  delimiter            = var.delimiter
+  vpc_id               = module.vpc.vpc_id
+  igw_id               = module.vpc.igw_id
+  cidr_block           = module.vpc.vpc_cidr_block
+  nat_gateway_enabled  = true
+  nat_instance_enabled = false
 }
 
-resource "aws_s3_bucket_object" "dist_item" {
-  key    = "${var.environment}/dist-${uuid()}"
-  bucket = aws_s3_bucket.dist_bucket.id
-  source = data.archive_file.api_dist_zip.output_path
-}
-
-module "elastic-beanstalk-application" {
-  source  = "cloudposse/elastic-beanstalk-application/aws"
-  version = "0.7.1"
-  name        = "AndrewBotapp"
-  # insert the 1 required variable here
-}
 module "elastic_beanstalk_application" {
-  source      = "cloudposse/elastic-beanstalk-application/aws"
-  version     = "0.7.1"
-  namespace   = "andrewbot"
-  stage       = "prod"
-  name        = "andrewbotapp"
+  source  = "cloudposse/elastic-beanstalk-application/aws"
+  version = "0.8.0"
+  # insert the 9 required variables here
+  namespace   = var.namespace
+  stage       = var.stage
+  name        = var.name
+  attributes  = var.attributes
+  tags        = var.tags
+  delimiter   = var.delimiter
   description = "Test elastic_beanstalk_application"
 }
 
 module "elastic_beanstalk_environment" {
-  source                             = "cloudposse/elastic-beanstalk-environment/aws"
-  version                            = "0.31.0"
-  namespace                          = "andrewbot"
-  stage                              = "prod"
-  name                               = "app"
-  description                        = "Test elastic_beanstalk_environment"
-  region                             = var.aws_region
-  availability_zone_selector         = "Any 2"
+  source  = "cloudposse/elastic-beanstalk-environment/aws"
+  version = "0.31.0"
+  # insert the 7 required variables here
+  namespace                  = var.namespace
+  stage                      = var.stage
+  name                       = var.name
+  attributes                 = var.attributes
+  tags                       = var.tags
+  delimiter                  = var.delimiter
+  description                = var.description
+  region                     = var.region
+  availability_zone_selector = var.availability_zone_selector
+  dns_zone_id                = var.dns_zone_id
+  wait_for_ready_timeout             = var.wait_for_ready_timeout
   elastic_beanstalk_application_name = module.elastic_beanstalk_application.elastic_beanstalk_application_name
-  application_subnets = ""
-  vpc_id = ""
-
-  instance_type           = "t3.small"
-  autoscale_min           = 1
-  autoscale_max           = 2
-  updating_min_in_service = 0
-  updating_max_batch      = 1
-
-  loadbalancer_type       = "application"
-
+  environment_type                   = var.environment_type
+  loadbalancer_type                  = var.loadbalancer_type
+  elb_scheme                         = var.elb_scheme
+  tier                               = var.tier
+  version_label                      = var.version_label
+  force_destroy                      = var.force_destroy
+  instance_type    = var.instance_type
+  root_volume_size = var.root_volume_size
+  root_volume_type = var.root_volume_type
+  autoscale_min             = var.autoscale_min
+  autoscale_max             = var.autoscale_max
+  autoscale_measure_name    = var.autoscale_measure_name
+  autoscale_statistic       = var.autoscale_statistic
+  autoscale_unit            = var.autoscale_unit
+  autoscale_lower_bound     = var.autoscale_lower_bound
+  autoscale_lower_increment = var.autoscale_lower_increment
+  autoscale_upper_bound     = var.autoscale_upper_bound
+  autoscale_upper_increment = var.autoscale_upper_increment
+  vpc_id                  = module.vpc.vpc_id
+  loadbalancer_subnets    = module.dynamic_subnets.public_subnet_ids
+  application_subnets     = module.dynamic_subnets.private_subnet_ids
+  allowed_security_groups = [module.vpc.vpc_default_security_group_id]
+  rolling_update_enabled  = var.rolling_update_enabled
+  rolling_update_type     = var.rolling_update_type
+  updating_min_in_service = var.updating_min_in_service
+  updating_max_batch      = var.updating_max_batch
+  healthcheck_url  = var.healthcheck_url
+  application_port = var.application_port
   // https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html
   // https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.docker
-  solution_stack_name = "64bit Amazon Linux 2018.03 v2.12.17 running Docker 18.06.1-ce"
-}
-
-resource "aws_elastic_beanstalk_application_version" "default" {
-  name        = "andrewbot-prod-${uuid()}"
-  application = module.elastic_beanstalk_application.app_name
-  description = "application version created by terraform"
-  bucket      = aws_s3_bucket.dist_bucket.id
-  key         = aws_s3_bucket_object.dist_item.id
+  solution_stack_name = var.solution_stack_name
+  additional_settings = var.additional_settings
+  env_vars            = var.env_vars
+  extended_ec2_policy_document = data.aws_iam_policy_document.minimal_s3_permissions.json
+  prefer_legacy_ssm_policy     = false
 }
