@@ -48,6 +48,4 @@ additional_settings = [
   }
 ]
 env_vars = {
-  "DISCORD_TOKEN"         = var.DISCORD_TOKEN
-  "YOUTUBE_APIKEY"        = var.YOUTUBE_APIKEY
 }

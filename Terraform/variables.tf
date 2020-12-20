@@ -1,9 +1,9 @@
-variable "DISCORD_TOKEN" {
+variable "TF_VAR_DISCORD_TOKEN" {
   type        = string
   description = "Discord API token"
 }
 
-variable "YOUTUBE_APIKEY" {
+variable "TF_VAR_YOUTUBE_APIKEY" {
   type        = string
   description = "Youtube API Key"
 }
