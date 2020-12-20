@@ -48,8 +48,6 @@ additional_settings = [
   }
 ]
 env_vars = {
-  "DB_HOST"         = "xxxxxxxxxxxxxx"
-  "DB_USERNAME"     = "yyyyyyyyyyyyy"
-  "DB_PASSWORD"     = "zzzzzzzzzzzzzzzzzzz"
-  "ANOTHER_ENV_VAR" = "123456789"
+  "DISCORD_TOKEN"         = "xxxxxxxxxxxxxx"
+  "YOUTUBE_APIKEY"        = "yyyyyyyyyyyyy"
 }
