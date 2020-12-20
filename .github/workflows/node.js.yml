@@ -11,14 +11,14 @@ on:
 
 jobs:
   build-and-publish:
-    name: build and publish
+    name: Test and Lint
     runs-on: ubuntu-latest
     steps:
       - name: npm test
-        uses: actions/npm@master
+        uses: actions/checkout@master
         with:
           args: run test
       - name: npm lint
-        uses: actions/npm@master
+        uses: actions/checkout@master
         with:
           args: run lint
