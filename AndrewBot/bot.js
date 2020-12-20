@@ -25,7 +25,7 @@ require('dotenv').config();
 
 //Run axios and get YT key
 const axios = require('axios')
-const YOUTUBE_APIKEY = `${{ secrets.YOUTUBE_APIKEY }}`
+const YOUTUBE_APIKEY = `${secrets.YOUTUBE_APIKEY}`;
 
 //require holy-bible
 var bible = require('holy-bible');
@@ -43,7 +43,7 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.login(`${{ secrets.DISCORD_TOKEN }}`);
+client.login(`${secrets.DISCORD_TOKEN }`);
 
 
 
