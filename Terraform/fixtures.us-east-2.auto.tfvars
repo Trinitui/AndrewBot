@@ -48,6 +48,6 @@ additional_settings = [
   }
 ]
 env_vars = {
-  "DISCORD_TOKEN"         = ${{ secrets.DISCORD_TOKEN }}
-  "YOUTUBE_APIKEY"        = ${{ secrets.YOUTUBE_APIKEY }}
+  "DISCORD_TOKEN"         = secrets.DISCORD_TOKEN
+  "YOUTUBE_APIKEY"        = secrets.YOUTUBE_APIKEY
 }
