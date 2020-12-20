@@ -1,3 +1,13 @@
+variable "DISCORD_TOKEN" {
+  type        = string
+  description = "Discord API token"
+}
+
+variable "YOUTUBE_APIKEY" {
+  type        = string
+  description = "Youtube API Key"
+}
+
 variable "region" {
   type        = string
   description = "AWS region"
