@@ -46,10 +46,11 @@ variable "loadbalancer_type" {
   type        = string
   description = "Load Balancer type, e.g. 'application' or 'classic'"
 }
-variable "dns_zone_id" {
-  type        = string
-  description = "Route53 parent zone ID. The module will create sub-domain DNS record in the parent zone for the EB environment"
-}
+//variable "dns_zone_id" {
+//  type        = string
+//  description = "Route53 parent zone ID. The module will create sub-domain DNS record in the parent zone for the EB environment"
+//}
+
 variable "availability_zone_selector" {
   type        = string
   description = "Availability Zone selector"
