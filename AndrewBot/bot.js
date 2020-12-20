@@ -57,8 +57,9 @@ client.on('message', msg => {
 });
 
 //2. This function handles user's pressing needs to get a Gex quote. 
+
 client.on('message', msg => {
-	if (msg.content === "gex") {
+	if (msg.content.toLowerCase().includes("gex")) {
 		switch (Math.floor(Math.random() * 10)) {
 			case 1:
 				msg.channel.send("<:gx:743242684281389176> " + "Has anyone seen " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in here?")
@@ -120,7 +121,7 @@ client.on('message', msg => {
 
 //5.x Rudy functionality
 client.on('message', msg => {
-	if (msg.content.includes('Rudy')) {
+	if (msg.content.toLowerCase().includes('rudy')) {
 		switch (Math.floor(Math.random() * 7)) {
 			case 1:
 				msg.channel.send("'Those votes were from Mickey Mouse!'")
