@@ -31,7 +31,7 @@ autoscale_upper_increment = 1
 elb_scheme = "public"
 // https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html
 // https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.docker
-solution_stack_name = "64bit Amazon Linux 2018.03 v2.16.2 running Docker 19.03.13-ce"
+solution_stack_name = "64bit Amazon Linux 2 v5.2.3 running Node.js 12"
 version_label = ""
 //dns_zone_id = "Z3SO0TKDDQ0RGG"
 // https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
