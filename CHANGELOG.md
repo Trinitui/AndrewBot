@@ -10,3 +10,5 @@
 ### Made AndrewBot Open Source
 ### Removed .env file
 ### Cleaned up documentation.
+
+## Version 1.6.x
