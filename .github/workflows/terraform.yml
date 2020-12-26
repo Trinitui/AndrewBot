@@ -57,12 +57,8 @@ jobs:
     steps:
       - name: npm test
         uses: actions/checkout@master
-        with:
-          args: run test
       - name: npm lint
         uses: actions/checkout@master
-        with:
-          args: run lint
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest

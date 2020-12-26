@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "dist_bucket" {
 }
 
 resource "aws_s3_bucket_object" "dist_item" {
-  key    = "dist-${uuid()}"
+  key    = "AndrewBot.zip"
   bucket = aws_s3_bucket.dist_bucket.id
   source = data.archive_file.api_dist_zip.output_path
 }
