@@ -222,7 +222,7 @@ client.on('message', msg => {
 					})
 			})
 	}
-})
+
 
 if (msg.content.includes('SpaceX-experimental')) {
 	axios.get(`https://api.spacexdata.com/v4/launches/latest`)
@@ -253,4 +253,4 @@ if (msg.content.includes('SpaceX-experimental')) {
 				})
 		})
 }
-
+})
