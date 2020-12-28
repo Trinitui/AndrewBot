@@ -19,9 +19,6 @@
 // If you want to add something new, submit an issue first. 
 
 
-
-
-
 // Run dotenv
 require('dotenv').config();
 
@@ -46,7 +43,6 @@ client.on('ready', () => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
-
 
 
 
@@ -108,9 +104,7 @@ client.on('message', msg => {
 	}
 	
 	// 5. When AndrewBot is mentioned, return 🤖
-	if (msgContent.includes('AndrewBot')) {
-		msg.channel.send(`🤖`);
-	}
+	if (msgContent.includes('AndrewBot')) msg.channel.send(`🤖`);
 	
 	//5.x Rudy functionality
 	if (msg.content.toLowerCase().includes('rudy')) {
