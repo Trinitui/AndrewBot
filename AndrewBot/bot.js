@@ -25,15 +25,6 @@ const client = new Discord.Client();
 var bible = require("holy-bible");
 const gexArr = require("./gexArr.js");
 const { peopleArr, actionArr, placeArr } = require("./activeArrs.js");
-const rudyMessages = [
-  "'Those votes were from Mickey Mouse!'",
-  "'What does opacity mean? It probably means you can see.'",
-  "'ALL THE NETWORKS!!!'",
-  "'This is not a fraud case'",
-  "'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'",
-  "'There is nobody here that engages in fantasies'",
-  "'Oh Donald, you brute!'",
-];
 
 // Login
 client.login(process.env.DISCORD_TOKEN);
@@ -94,6 +85,16 @@ client.on("message", async (msg) => {
 
   //5.x Rudy functionality
   if (msgContent === "rudy") {
+	const rudyMessages = [
+		"'Those votes were from Mickey Mouse!'",
+		"'What does opacity mean? It probably means you can see.'",
+		"'ALL THE NETWORKS!!!'",
+		"'This is not a fraud case'",
+		"'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'",
+		"'There is nobody here that engages in fantasies'",
+		"'Oh Donald, you brute!'",
+	  ];
+	  
     let i = Math.floor(Math.random() * rudyMessages.length);
     let f;
 
