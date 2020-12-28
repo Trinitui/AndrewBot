@@ -25,6 +25,7 @@ const client = new Discord.Client();
 var bible = require("holy-bible");
 const gexArr = require("./gexArr.js");
 const { peopleArr, actionArr, placeArr } = require("./activeArrs.js");
+const rudyMessages = ["'Those votes were from Mickey Mouse!'", "'What does opacity mean? It probably means you can see.'", "'ALL THE NETWORKS!!!'", "'This is not a fraud case'", "'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'", "'There is nobody here that engages in fantasies'", "'Oh Donald, you brute!'"];
 
 // Login
 client.login(process.env.DISCORD_TOKEN);
@@ -168,43 +169,18 @@ client.on("message", (msg) => {
 
   //5.x Rudy functionality
   if (msgContent.includes("rudy")) {
-    switch (Math.floor(Math.random() * 7)) {
-      case 1:
-        msg.channel.send("'Those votes were from Mickey Mouse!'");
-        break;
-      case 2:
-        msg.channel.send(
-          "'What does opacity mean? It probably means you can see.'",
-          { files: ["./Pictures/Rudy_2.jpeg"] }
-        );
-        break;
-      case 3:
-        msg.channel.send("'ALL THE NETWORKS!!!'", {
-          files: ["./Pictures/Rudy_all.jpg"],
-        });
-        break;
-      case 4:
-        msg.channel.send("'This is not a fraud case'", {
-          files: ["./Pictures/Rudy_1.png"],
-        });
-        break;
-      case 5:
-        msg.channel.send(
-          "'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'",
-          { files: ["./Pictures/Rudy_3.png"] }
-        );
-        break;
-      case 6:
-        msg.channel.send("'There is nobody here that engages in fantasies'", {
-          files: ["./Pictures/Rudy_4.png"],
-        });
-        break;
-      case 0:
-        msg.channel.send("'Oh Donald, you brute!'", {
-          files: ["./Pictures/Rudy_curse.jpg"],
-        });
-        break;
-    }
+	  let i = Math.floor(Math.random() * rudyMessages.length);
+	  let f;
+
+	  if(i === 0 )f = "./Pictures/Rudy_curse.jpg"
+	  else if(i === 2) f = "./Pictures/Rudy_2.jpeg"
+	  else if(i ===3)f = "./Pictures/Rudy_all.jpg"
+	  else if(i === 4) f = "./Pictures/Rudy_1.png"
+	  else if(i === 5)f = "./Pictures/Rudy_3.png"
+	  else if(i ===6)f = "./Pictures/Rudy_4.png"
+
+	  
+	  msg.channel.send(rudyMessages[i], {files: [f]});
   }
 
   // 6. Playing around with the Bible NPM library. Might do more here but :shrug:
