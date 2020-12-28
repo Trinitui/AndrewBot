@@ -51,7 +51,7 @@ client.on("message", (msg) => {
   if (msgContent === "ping") msg.reply("**pong at AWS**");
 
   //2. This function handles user's pressing needs to get a Gex quote.
-  if (msgContent.includes("gex")) {
+  if (msgContent === "gex") {
     switch (Math.floor(Math.random() * 10)) {
       case 1:
         msg.channel.send(
@@ -176,7 +176,7 @@ client.on("message", (msg) => {
   if (msgContent.includes("AndrewBot")) msg.channel.send(`🤖`);
 
   //5.x Rudy functionality
-  if (msgContent.includes("rudy")) {
+  if (msgContent === ("rudy")) {
     let i = Math.floor(Math.random() * rudyMessages.length);
     let f;
 
