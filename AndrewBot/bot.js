@@ -44,7 +44,7 @@ client.on("ready", () => {
 });
 
 // Message event (Commands)
-client.on("message", (msg) => {
+client.on("message", async (msg) => {
   const msgContent = msg.content.toLowerCase();
 
   //1. This is a basic test of the bot. Users says Ping, bot says Pong.
