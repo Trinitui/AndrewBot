@@ -1,3 +1,5 @@
+//jshint esversion: 9
+
 //WAIT! Read these comments before moving on...
 // The first section below has a lot of variables being initialized to get what 
 // the bot needs from different dependencies. 
@@ -24,7 +26,7 @@
 require('dotenv').config();
 
 //Run axios and get YT key
-const axios = require('axios')
+const axios = require('axios');
 const YOUTUBE_APIKEY = process.env.YOUTUBE_APIKEY;
 
 //require holy-bible
@@ -35,8 +37,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 //Import Arrays from other files. 
-const gexArr = require('./gexArr.js')
-const { peopleArr, actionArr, placeArr } = require("./activeArrs.js")
+const gexArr = require('./gexArr.js');
+const { peopleArr, actionArr, placeArr } = require("./activeArrs.js");
 
 // Log Bot into discord
 client.on('ready', () => {
@@ -58,34 +60,34 @@ client.on('message', msg => {
 	if (msgContent.includes("gex")) {
 		switch (Math.floor(Math.random() * 10)) {
 			case 1:
-				msg.channel.send("<:gx:743242684281389176> " + "Has anyone seen " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in here?")
+				msg.channel.send("<:gx:743242684281389176> " + "Has anyone seen " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in here?");
 				break;
 			case 2:
 				msg.channel.send("<:gx:743242684281389176> " + "Note to self: don\'t go to a party at " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".");
 				break;
 			case 3:
-				msg.channel.send("<:gx:743242684281389176> " + "Reminds me of " + actionArr[Math.floor(Math.random() * actionArr.length)] + " at " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".")
+				msg.channel.send("<:gx:743242684281389176> " + "Reminds me of " + actionArr[Math.floor(Math.random() * actionArr.length)] + " at " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".");
 				break;
 			case 4:
-				msg.channel.send("<:gx:743242684281389176> " + "Don't take career advice from " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + ".")
+				msg.channel.send("<:gx:743242684281389176> " + "Don't take career advice from " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + ".");
 				break;
 			case 5:
-				msg.channel.send("<:gx:743242684281389176> " + "Ladies and Gentlemen, I present " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "!")
+				msg.channel.send("<:gx:743242684281389176> " + "Ladies and Gentlemen, I present " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "!");
 				break;
 			case 6:
-				msg.channel.send("<:gx:743242684281389176> " + "Is it just me or does anyone feel like " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " is " + actionArr[Math.floor(Math.random() * actionArr.length)] + "?")
+				msg.channel.send("<:gx:743242684281389176> " + "Is it just me or does anyone feel like " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " is " + actionArr[Math.floor(Math.random() * actionArr.length)] + "?");
 				break;
 			case 7:
 				msg.channel.send("<:gx:743242684281389176> " + "I feel like " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in a " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".");
 				break;
 			case 8:
-				msg.channel.send("<:gx:743242684281389176> " + "This is like " + actionArr[Math.floor(Math.random() * actionArr.length)] + " at " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".")
+				msg.channel.send("<:gx:743242684281389176> " + "This is like " + actionArr[Math.floor(Math.random() * actionArr.length)] + " at " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".");
 				break;
 			case 9:
-				msg.channel.send("<:gx:743242684281389176> " + "This place is bigger than " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + actionArr[Math.floor(Math.random() * actionArr.length)] + ".")
+				msg.channel.send("<:gx:743242684281389176> " + "This place is bigger than " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + "'s " + actionArr[Math.floor(Math.random() * actionArr.length)] + ".");
 				break;
 			case 0:
-				msg.channel.send("<:gx:743242684281389176> " + "This is worse than finding " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in a " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".")
+				msg.channel.send("<:gx:743242684281389176> " + "This is worse than finding " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in a " + placeArr[Math.floor(Math.random() * placeArr.length)] + ".");
 				break;
 		}
 	}
@@ -102,37 +104,37 @@ client.on('message', msg => {
 			})
 			.catch(error => {
 				console.log(error);
-			})
+			});
 	}
 	
 	// 5. When AndrewBot is mentioned, return 🤖
 	if (msgContent.includes('AndrewBot')) {
-		msg.channel.send(`🤖`)
+		msg.channel.send(`🤖`);
 	}
 	
 	//5.x Rudy functionality
 	if (msg.content.toLowerCase().includes('rudy')) {
 		switch (Math.floor(Math.random() * 7)) {
 			case 1:
-				msg.channel.send("'Those votes were from Mickey Mouse!'")
+				msg.channel.send("'Those votes were from Mickey Mouse!'");
 				break;
 			case 2:
 				msg.channel.send("'What does opacity mean? It probably means you can see.'", { files: ["./Pictures/Rudy_2.jpeg"] });
 				break;
 			case 3:
-				msg.channel.send("'ALL THE NETWORKS!!!'", { files: ["./Pictures/Rudy_all.jpg"] })
+				msg.channel.send("'ALL THE NETWORKS!!!'", { files: ["./Pictures/Rudy_all.jpg"] });
 				break;
 			case 4:
-				msg.channel.send("'This is not a fraud case'", { files: ["./Pictures/Rudy_1.png"] })
+				msg.channel.send("'This is not a fraud case'", { files: ["./Pictures/Rudy_1.png"] });
 				break;
 			case 5:
-				msg.channel.send("'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'", { files: ["./Pictures/Rudy_3.png"] })
+				msg.channel.send("'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'", { files: ["./Pictures/Rudy_3.png"] });
 				break;
 			case 6:
-				msg.channel.send("'There is nobody here that engages in fantasies'", { files: ["./Pictures/Rudy_4.png"] })
+				msg.channel.send("'There is nobody here that engages in fantasies'", { files: ["./Pictures/Rudy_4.png"] });
 				break;
 			case 0:
-				msg.channel.send("'Oh Donald, you brute!'", { files: ["./Pictures/Rudy_curse.jpg"] })
+				msg.channel.send("'Oh Donald, you brute!'", { files: ["./Pictures/Rudy_curse.jpg"] });
 				break;
 		}
 	}
@@ -142,48 +144,42 @@ client.on('message', msg => {
 		//msg.content = Matthew 4:13 = "quote from Bible"
 		bible.get(msg.toString())
 			.then(function (res) {
-				msg.channel.send(res.text)
-			})
+				msg.channel.send(res.text);
+			});
 	}
 	if (msg.content.startsWith('Mark')) {
 		bible.get(msg.toString())
 			.then(function (res) {
-				msg.channel.send(res.text)
-			})
+				msg.channel.send(res.text);
+			});
 	}
 	if (msg.content.startsWith('Luke')) {
 		bible.get(msg.toString())
 			.then(function (res) {
-				msg.channel.send(res.text)
-			})
+				msg.channel.send(res.text);
+			});
 	}
 	if (msg.content.startsWith('John')) {
 		bible.get(msg.toString())
 			.then(function (res) {
-				msg.channel.send(res.text)
-			})
+				msg.channel.send(res.text);
+			});
 	}
-	
-	
-	
-});
 
 
-// 7. SpaceX integration
-client.on('message', msg => {
-
+	// 7. SpaceX integration
 	if (msg.content.includes('SpaceX-latest')) {
 		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
 			.then(response => {
-				msg.channel.send("Launch Name: " + response.data.name)
-				msg.channel.send("Local time: " + response.data.date_local)
-				let imageArr = []
+				msg.channel.send("Launch Name: " + response.data.name);
+				msg.channel.send("Local time: " + response.data.date_local);
+				let imageArr = [];
 				for (var i = 0; i <= response.data.links.flickr.original.length; i++) {
-					imageArr.push(response.data.links.flickr.original[i])
+					imageArr.push(response.data.links.flickr.original[i]);
 				}
-				msg.channel.send("Images from Launch: ")
-				msg.channel.send(imageArr ? imageArr : "Sorry, no images at this time.")
-			})
+				msg.channel.send("Images from Launch: ");
+				msg.channel.send(imageArr ? imageArr : "Sorry, no images at this time.");
+			});
 	}
 
 	if (msg.content.includes('SpaceX-upcoming')) {
@@ -191,7 +187,7 @@ client.on('message', msg => {
 			.then(response => {
 				let imageArr = [];
 				for (var i = 0; i <= response.data.links.flickr.original.length; i++) {
-					imageArr.push(response.data.links.flickr.original[i])
+					imageArr.push(response.data.links.flickr.original[i]);
 				}
 				let randy = Math.floor(Math.random() * response.data.links.flickr.original.length);
 				msg.channel.send(
@@ -211,8 +207,8 @@ client.on('message', msg => {
 								"url": imageArr[randy],
 							}
 						}
-					})
-			})
+					});
+			});
 	}
 
 
@@ -221,9 +217,9 @@ if (msg.content.includes('SpaceX-experimental')) {
 		.then(response => {
 			//msg.channel.send("Launch Name: "+response.data.name)
 			//msg.channel.send("Local time: "+response.data.date_local)
-			let imageArr = []
+			let imageArr = [];
 			for (var i = 0; i <= response.data.links.flickr.original.length; i++) {
-				imageArr.push(response.data.links.flickr.original[i])
+				imageArr.push(response.data.links.flickr.original[i]);
 			}
 			msg.channel.send(
 				{
@@ -242,7 +238,8 @@ if (msg.content.includes('SpaceX-experimental')) {
 							"url": imageArr[0],
 						}
 					}
-				})
-		})
+				});
+		});
 }
-})
+
+});
