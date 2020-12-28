@@ -159,7 +159,7 @@ client.on("message", async (msg) => {
         }
         let randy = Math.floor(
           Math.random() * response.data.links.flickr.original.length
-        );
+		);
         msg.channel.send({
           embed: {
             title: "SpaceX's Upcoming Launch",
@@ -173,7 +173,8 @@ client.on("message", async (msg) => {
             image: {
               url: imageArr[randy],
             },
-          },
+		  },
+		  
         });
       });
   }
