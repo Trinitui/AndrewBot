@@ -85,7 +85,7 @@ client.on("message", async (msg) => {
 
   //5.x Rudy functionality
   if (msgContent === "rudy") {
-	const rudyMessages = [
+	const rudyArr = [
 		"'Those votes were from Mickey Mouse!'",
 		"'What does opacity mean? It probably means you can see.'",
 		"'ALL THE NETWORKS!!!'",
