@@ -48,17 +48,14 @@ client.login(process.env.DISCORD_TOKEN);
 
 
 
-//1. This is a basic test of the bot. Users says Ping, bot says Pong.
 client.on('message', msg => {
-	if (msg.content === 'ping') {
-		msg.reply('**pong at AWS**');
-	}
-});
-
-//2. This function handles user's pressing needs to get a Gex quote. 
-
-client.on('message', msg => {
-	if (msg.content.toLowerCase().includes("gex")) {
+	const msgContent = msg.content.toLowerCase();
+	
+	//1. This is a basic test of the bot. Users says Ping, bot says Pong.
+	if (msgContent === 'ping') msg.reply('**pong at AWS**');
+	
+	//2. This function handles user's pressing needs to get a Gex quote. 
+	if (msgContent.includes("gex")) {
 		switch (Math.floor(Math.random() * 10)) {
 			case 1:
 				msg.channel.send("<:gx:743242684281389176> " + "Has anyone seen " + peopleArr[Math.floor(Math.random() * peopleArr.length)] + " in here?")
@@ -92,11 +89,9 @@ client.on('message', msg => {
 				break;
 		}
 	}
-});
-
-// 4. This gets a nightcore song when the user asks for one, using !nightcore*
-client.on('message', msg => {
-	if (msg.content.startsWith('!nightcore')) {
+	
+	// 4. This gets a nightcore song when the user asks for one, using !nightcore*
+	if (msgContent.startsWith('!nightcore')) {
 		let q = msg.content;
 		//search yt for Nightcore+searchterm
 		axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`)
@@ -109,17 +104,13 @@ client.on('message', msg => {
 				console.log(error);
 			})
 	}
-});
-
-// 5. When AndrewBot is mentioned, return 🤖
-client.on('message', msg => {
-	if (msg.content.includes('AndrewBot')) {
+	
+	// 5. When AndrewBot is mentioned, return 🤖
+	if (msgContent.includes('AndrewBot')) {
 		msg.channel.send(`🤖`)
 	}
-});
-
-//5.x Rudy functionality
-client.on('message', msg => {
+	
+	//5.x Rudy functionality
 	if (msg.content.toLowerCase().includes('rudy')) {
 		switch (Math.floor(Math.random() * 7)) {
 			case 1:
@@ -145,10 +136,8 @@ client.on('message', msg => {
 				break;
 		}
 	}
-});
-
-// 6. Playing around with the Bible NPM library. Might do more here but :shrug:
-client.on('message', msg => {
+	
+	// 6. Playing around with the Bible NPM library. Might do more here but :shrug:
 	if (msg.content.startsWith('Matthew')) {
 		//msg.content = Matthew 4:13 = "quote from Bible"
 		bible.get(msg.toString())
@@ -174,8 +163,11 @@ client.on('message', msg => {
 				msg.channel.send(res.text)
 			})
 	}
+	
+	
+	
+});
 
-})
 
 // 7. SpaceX integration
 client.on('message', msg => {
