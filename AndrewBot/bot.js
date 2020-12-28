@@ -52,107 +52,24 @@ client.on("message", async (msg) => {
 
   //2. This function handles user's pressing needs to get a Gex quote.
   if (msgContent === "gex") {
-    switch (Math.floor(Math.random() * 10)) {
-      case 1:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Has anyone seen " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            " in here?"
-        );
-        break;
-      case 2:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Note to self: don't go to a party at " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "'s " +
-            placeArr[Math.floor(Math.random() * placeArr.length)] +
-            "."
-        );
-        break;
-      case 3:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Reminds me of " +
-            actionArr[Math.floor(Math.random() * actionArr.length)] +
-            " at " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "'s " +
-            placeArr[Math.floor(Math.random() * placeArr.length)] +
-            "."
-        );
-        break;
-      case 4:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Don't take career advice from " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "."
-        );
-        break;
-      case 5:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Ladies and Gentlemen, I present " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "!"
-        );
-        break;
-      case 6:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "Is it just me or does anyone feel like " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            " is " +
-            actionArr[Math.floor(Math.random() * actionArr.length)] +
-            "?"
-        );
-        break;
-      case 7:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "I feel like " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            " in a " +
-            placeArr[Math.floor(Math.random() * placeArr.length)] +
-            "."
-        );
-        break;
-      case 8:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "This is like " +
-            actionArr[Math.floor(Math.random() * actionArr.length)] +
-            " at " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "'s " +
-            placeArr[Math.floor(Math.random() * placeArr.length)] +
-            "."
-        );
-        break;
-      case 9:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "This place is bigger than " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            "'s " +
-            actionArr[Math.floor(Math.random() * actionArr.length)] +
-            "."
-        );
-        break;
-      case 0:
-        msg.channel.send(
-          "<:gx:743242684281389176> " +
-            "This is worse than finding " +
-            peopleArr[Math.floor(Math.random() * peopleArr.length)] +
-            " in a " +
-            placeArr[Math.floor(Math.random() * placeArr.length)] +
-            "."
-        );
-        break;
+	  let i = Math.floor(Math.random() * 10);
+	  let pe = peopleArr[Math.floor(Math.random() * peopleArr.length)];
+	  let pl = placeArr[Math.floor(Math.random() * placeArr.length)];
+	  let ac = actionAr[Math.floor(Math.random() * actionArr.length)];
+	  let gexArray = [
+		  `Has anyone seen ${pe} in here?`,
+		  `Note to self: don't go to a party at ${pe}'s ${pl}.`,
+		  `Reminds me of ${ac} at ${pe}'s ${pl}."`,
+		  `Don't take career advice from ${pe}.`,
+		  `Ladies and Gentlemen, I present ${pe}!`,
+		  `Is it just me or does anyone feel like ${pe} is ${ac}.`,
+		  `I feel like ${pe} in a ${pl}.`,
+		  `This is like ${ac} at ${pe}'s ${pl}.`,
+		  `This place is bigger than ${ac}'s ${pl}.`,
+		  `This is worse than finding ${pe} in a ${pl}.`
+	  ];
+    msg.channel.send(gexArray[i]);
     }
-  }
 
   // 4. This gets a nightcore song when the user asks for one, using !nightcore*
   if (msgContent.startsWith("!nightcore")) {
