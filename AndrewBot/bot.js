@@ -1,4 +1,3 @@
-//jshint esversion: 9
 /*
 WAIT! Read these comments before moving on...
 The first section below has a lot of variables being initialized to get what the bot needs from different dependencies. 
