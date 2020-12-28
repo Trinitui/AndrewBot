@@ -172,12 +172,12 @@ client.on("message", (msg) => {
 	  let i = Math.floor(Math.random() * rudyMessages.length);
 	  let f;
 
-	  if(i === 0 )f = "./Pictures/Rudy_curse.jpg"
-	  else if(i === 2) f = "./Pictures/Rudy_2.jpeg"
-	  else if(i ===3)f = "./Pictures/Rudy_all.jpg"
-	  else if(i === 4) f = "./Pictures/Rudy_1.png"
-	  else if(i === 5)f = "./Pictures/Rudy_3.png"
-	  else if(i ===6)f = "./Pictures/Rudy_4.png"
+	  if(i === 0 )f = "./Pictures/Rudy_curse.jpg";
+	  else if(i === 2) f = "./Pictures/Rudy_2.jpeg";
+	  else if(i ===3)f = "./Pictures/Rudy_all.jpg";
+	  else if(i === 4) f = "./Pictures/Rudy_1.png";
+	  else if(i === 5)f = "./Pictures/Rudy_3.png";
+	  else if(i ===6)f = "./Pictures/Rudy_4.png";
 
 	  
 	  msg.channel.send(rudyMessages[i], {files: [f]});
