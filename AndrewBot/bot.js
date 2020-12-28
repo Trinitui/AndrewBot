@@ -68,7 +68,7 @@ client.on("message", async (msg) => {
 		  `This place is bigger than ${ac}'s ${pl}.`,
 		  `This is worse than finding ${pe} in a ${pl}.`
 	  ];
-    msg.channel.send(gexArray[i]);
+    await msg.channel.send(gexArray[i]);
     }
 
   // 4. This gets a nightcore song when the user asks for one, using !nightcore*
@@ -104,7 +104,7 @@ client.on("message", async (msg) => {
     else if (i === 5) f = "./Pictures/Rudy_3.png";
     else if (i === 6) f = "./Pictures/Rudy_4.png";
 
-    msg.channel.send(rudyMessages[i], { files: [f] });
+    await msg.channel.send(rudyMessages[i], { files: [f] });
   }
 
   // 6. Playing around with the Bible NPM library. Might do more here but :shrug:
