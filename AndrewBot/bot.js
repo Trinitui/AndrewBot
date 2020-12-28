@@ -107,7 +107,7 @@ client.on('message', msg => {
 	if (msgContent.includes('AndrewBot')) msg.channel.send(`🤖`);
 	
 	//5.x Rudy functionality
-	if (msg.content.toLowerCase().includes('rudy')) {
+	if (msgContent.includes('rudy')) {
 		switch (Math.floor(Math.random() * 7)) {
 			case 1:
 				msg.channel.send("'Those votes were from Mickey Mouse!'");
@@ -134,26 +134,26 @@ client.on('message', msg => {
 	}
 	
 	// 6. Playing around with the Bible NPM library. Might do more here but :shrug:
-	if (msg.content.startsWith('Matthew')) {
+	if (msgContent.startsWith('matthew')) {
 		//msg.content = Matthew 4:13 = "quote from Bible"
 		bible.get(msg.toString())
 			.then(function (res) {
 				msg.channel.send(res.text);
 			});
 	}
-	if (msg.content.startsWith('Mark')) {
+	if (msgContent.startsWith('mark')) {
 		bible.get(msg.toString())
 			.then(function (res) {
 				msg.channel.send(res.text);
 			});
 	}
-	if (msg.content.startsWith('Luke')) {
+	if (msgContent.startsWith('luke')) {
 		bible.get(msg.toString())
 			.then(function (res) {
 				msg.channel.send(res.text);
 			});
 	}
-	if (msg.content.startsWith('John')) {
+	if (msgContent.startsWith('john')) {
 		bible.get(msg.toString())
 			.then(function (res) {
 				msg.channel.send(res.text);
@@ -162,7 +162,7 @@ client.on('message', msg => {
 
 
 	// 7. SpaceX integration
-	if (msg.content.includes('SpaceX-latest')) {
+	if (msgContent.includes('spacex-latest')) {
 		axios.get(`https://api.spacexdata.com/v4/launches/latest`)
 			.then(response => {
 				msg.channel.send("Launch Name: " + response.data.name);
@@ -176,7 +176,7 @@ client.on('message', msg => {
 			});
 	}
 
-	if (msg.content.includes('SpaceX-upcoming')) {
+	if (msgContent.includes('spacex-upcoming')) {
 		axios.get('https://api.spacexdata.com/v4/launches/upcoming')
 			.then(response => {
 				let imageArr = [];
@@ -206,7 +206,7 @@ client.on('message', msg => {
 	}
 
 
-if (msg.content.includes('SpaceX-experimental')) {
+if (msgContent.includes('spacex-experimental')) {
 	axios.get(`https://api.spacexdata.com/v4/launches/latest`)
 		.then(response => {
 			//msg.channel.send("Launch Name: "+response.data.name)
