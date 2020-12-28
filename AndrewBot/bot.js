@@ -95,7 +95,7 @@ client.on("message", async (msg) => {
 		"'Oh Donald, you brute!'",
 	  ];
 	  
-    let i = Math.floor(Math.random() * rudyMessages.length);
+    let i = Math.floor(Math.random() * rudyArr.length);
     let f;
 
     if (i === 0) f = "./Pictures/Rudy_curse.jpg";
@@ -105,7 +105,7 @@ client.on("message", async (msg) => {
     else if (i === 5) f = "./Pictures/Rudy_3.png";
     else if (i === 6) f = "./Pictures/Rudy_4.png";
 
-    await msg.channel.send(rudyMessages[i], { files: [f] });
+    await msg.channel.send(rudyArr[i], { files: [f] });
   }
 
   // 6. Playing around with the Bible NPM library. Might do more here but :shrug:
