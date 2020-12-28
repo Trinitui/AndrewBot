@@ -52,24 +52,24 @@ client.on("message", async (msg) => {
 
   //2. This function handles user's pressing needs to get a Gex quote.
   if (msgContent === "gex") {
-	  let i = Math.floor(Math.random() * 10);
-	  let pe = peopleArr[Math.floor(Math.random() * peopleArr.length)];
-	  let pl = placeArr[Math.floor(Math.random() * placeArr.length)];
-	  let ac = actionAr[Math.floor(Math.random() * actionArr.length)];
-	  let gexArray = [
-		  `Has anyone seen ${pe} in here?`,
-		  `Note to self: don't go to a party at ${pe}'s ${pl}.`,
-		  `Reminds me of ${ac} at ${pe}'s ${pl}."`,
-		  `Don't take career advice from ${pe}.`,
-		  `Ladies and Gentlemen, I present ${pe}!`,
-		  `Is it just me or does anyone feel like ${pe} is ${ac}.`,
-		  `I feel like ${pe} in a ${pl}.`,
-		  `This is like ${ac} at ${pe}'s ${pl}.`,
-		  `This place is bigger than ${ac}'s ${pl}.`,
-		  `This is worse than finding ${pe} in a ${pl}.`
-	  ];
+    let i = Math.floor(Math.random() * 10);
+    let pe = peopleArr[Math.floor(Math.random() * peopleArr.length)];
+    let pl = placeArr[Math.floor(Math.random() * placeArr.length)];
+    let ac = actionAr[Math.floor(Math.random() * actionArr.length)];
+    let gexArray = [
+      `Has anyone seen ${pe} in here?`,
+      `Note to self: don't go to a party at ${pe}'s ${pl}.`,
+      `Reminds me of ${ac} at ${pe}'s ${pl}."`,
+      `Don't take career advice from ${pe}.`,
+      `Ladies and Gentlemen, I present ${pe}!`,
+      `Is it just me or does anyone feel like ${pe} is ${ac}.`,
+      `I feel like ${pe} in a ${pl}.`,
+      `This is like ${ac} at ${pe}'s ${pl}.`,
+      `This place is bigger than ${ac}'s ${pl}.`,
+      `This is worse than finding ${pe} in a ${pl}.`,
+    ];
     await msg.channel.send(gexArray[i]);
-    }
+  }
 
   // 4. This gets a nightcore song when the user asks for one, using !nightcore*
   if (msgContent.startsWith("!nightcore")) {
@@ -93,7 +93,7 @@ client.on("message", async (msg) => {
   if (msgContent.includes("AndrewBot")) msg.channel.send(`🤖`);
 
   //5.x Rudy functionality
-  if (msgContent === ("rudy")) {
+  if (msgContent === "rudy") {
     let i = Math.floor(Math.random() * rudyMessages.length);
     let f;
 
