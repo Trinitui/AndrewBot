@@ -2,7 +2,7 @@
   "name": "andrewbot",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "AndrewBot/AndrewBot/bot.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,6 +17,6 @@
     "npm": "*"
   },
   "scripts": {
-    "start": "node bot.js"
+    "start": "node AndrewBot/bot.js"
   }
 }

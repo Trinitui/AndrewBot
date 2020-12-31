@@ -41,11 +41,11 @@ client.on("message", async (msg) => {
   if (msgContent === "ping") msg.reply("**pong at AWS**");
 
   //2. This function handles user's pressing needs to get a Gex quote.
-  if (msgContent === "gex") {
+  if (msgContent.includes("gex")) {
     let i = Math.floor(Math.random() * 10);
     let pe = peopleArr[Math.floor(Math.random() * peopleArr.length)];
     let pl = placeArr[Math.floor(Math.random() * placeArr.length)];
-    let ac = actionAr[Math.floor(Math.random() * actionArr.length)];
+    let ac = actionArr[Math.floor(Math.random() * actionArr.length)];
     let gexArray = [
       `Has anyone seen ${pe} in here?`,
       `Note to self: don't go to a party at ${pe}'s ${pl}.`,
@@ -83,12 +83,12 @@ client.on("message", async (msg) => {
   if (msgContent.includes("AndrewBot")) msg.channel.send(`🤖`);
 
   //5.x Rudy functionality
-  if (msgContent === "rudy") {
+  if (msgContent.includes("rudy")) {
 	const rudyArr = [
 		"'Those votes were from Mickey Mouse!'",
 		"'What does opacity mean? It probably means you can see.'",
 		"'ALL THE NETWORKS!!!'",
-		"'This is not a fraud case'",
+    "'This is not a fraud case'",
 		"'I know crimes. I can smell them. You don’t have to smell this one. I can prove it to you 18 different ways.'",
 		"'There is nobody here that engages in fantasies'",
 		"'Oh Donald, you brute!'",
@@ -97,12 +97,12 @@ client.on("message", async (msg) => {
     let i = Math.floor(Math.random() * rudyArr.length);
     let f;
 
-    if (i === 0) f = "./Pictures/Rudy_curse.jpg";
-    else if (i === 2) f = "./Pictures/Rudy_2.jpeg";
-    else if (i === 3) f = "./Pictures/Rudy_all.jpg";
-    else if (i === 4) f = "./Pictures/Rudy_1.png";
-    else if (i === 5) f = "./Pictures/Rudy_3.png";
-    else if (i === 6) f = "./Pictures/Rudy_4.png";
+    if (i === 0) f = "AndrewBot/Pictures/Rudy_curse.jpg";
+    else if (i === 2) f = "AndrewBot/Pictures/Rudy_2.jpeg";
+    else if (i === 3) f = "AndrewBot/Pictures/Rudy_all.jpg";
+    else if (i === 4) f = "AndrewBot/Pictures/Rudy_1.png";
+    else if (i === 5) f = "AndrewBot/Pictures/Rudy_3.png";
+    else if (i === 6) f = "AndrewBot/Pictures/Rudy_4.png";
 
     await msg.channel.send(rudyArr[i], { files: [f] });
   }
@@ -131,7 +131,7 @@ client.on("message", async (msg) => {
   }
 
   // 7. SpaceX integration
-  if (msgContent.includes("spacex-latest")) {
+  if (msgContent.includes("spacex-notused")) {
     axios
       .get(`https://api.spacexdata.com/v4/launches/latest`)
       .then((response) => {
@@ -178,7 +178,7 @@ client.on("message", async (msg) => {
       });
   }
 
-  if (msgContent.includes("spacex-experimental")) {
+  if (msgContent.includes("spacex-latest")) {
     axios
       .get(`https://api.spacexdata.com/v4/launches/latest`)
       .then((response) => {
