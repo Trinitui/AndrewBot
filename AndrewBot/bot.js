@@ -151,27 +151,20 @@ client.on("message", async (msg) => {
   if (msgContent.includes("spacex-upcoming")) {
     axios
       .get("https://api.spacexdata.com/v4/launches/upcoming")
-      .then((response) => {
-        let imageArr = [];
-        for (var i = 0; i <= response.data.links.flickr.original.length; i++) {
-          imageArr.push(response.data.links.flickr.original[i]);
-        }
-        let randy = Math.floor(
-          Math.random() * response.data.links.flickr.original.length
-		);
+      .then( (response) => {
+        let upcomingname = response.data[0].name
+        let upcomingdate = response.data[0].date_local
+        console.log(upcomingname, upcomingdate)
         msg.channel.send({
           embed: {
             title: "SpaceX's Upcoming Launch",
-            description: response.data.name,
+            description: upcomingname,
             fields: [
               {
                 name: "Date",
-                value: `${response.data.date_local}`,
+                value: upcomingdate,
               },
-            ],
-            image: {
-              url: imageArr[randy],
-            },
+            ]
 		  },
 		  
         });
