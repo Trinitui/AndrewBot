@@ -12,3 +12,5 @@
 ### Cleaned up documentation.
 
 ## Version 1.6.x
+### Many, Many changes made to Terraform files to get it just right
+### Many, Many optimizations and changes made to bot.js

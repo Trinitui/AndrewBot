@@ -1,6 +1,6 @@
 data "archive_file" "api_dist_zip" {
   type        = "zip"
-  source_dir = "${path.root}/../AndrewBot"
+  source_dir = "${path.root}"
   output_path = "AndrewBot.zip"
 }
 
