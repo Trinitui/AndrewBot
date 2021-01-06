@@ -80,7 +80,7 @@ client.on("message", async (msg) => {
   }
 
   // 5. When AndrewBot is mentioned, return 🤖
-  if (msgContent.includes("AndrewBot")) msg.channel.send(`🤖`);
+  if (msgContent.includes("andrewbot")) msg.channel.send(`🤖`);
 
   //5.x Rudy functionality
   if (msgContent.includes("rudy")) {
@@ -198,4 +198,18 @@ client.on("message", async (msg) => {
         });
       });
   }
+
+  if (msgContent.includes("bonjour")) {
+    let a = [
+      "Bonjour",
+      "Oui, oui.",
+      "Magnifique",
+      "What do I have to do to get you to finally go out with me?"
+    ]
+    msg.channel.send(a[Math.floor(Math.random() * a.length)])
+
+  }
+
+
+
 });
