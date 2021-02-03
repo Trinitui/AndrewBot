@@ -200,6 +200,7 @@ client.on("message", async (msg) => {
       });
   }
 
+  //8. Tim and Eric B$M memes
   if (msgContent.includes("bonjour")) {
     let a = [
       "Bonjour",
@@ -210,8 +211,12 @@ client.on("message", async (msg) => {
     msg.channel.send(a[Math.floor(Math.random() * a.length)])
 
   }
+
+  //Bubsy memes
   if (msgContent.includes("bubsy")) {
     let re = Math.floor(Math.random() * bubsyArr.length);
+    let le = bubsyArr.length
+    msg.channel.send(`There are ${le} Bubsy quotes currently tracked.`)
     msg.channel.send(bubsyArr[re]);
   }
 
