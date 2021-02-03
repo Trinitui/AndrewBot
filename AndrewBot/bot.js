@@ -23,6 +23,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var bible = require("holy-bible");
 const gexArr = require("./gexArr.js");
+const bubsyArr = require("./bubsyArr")
 const { peopleArr, actionArr, placeArr } = require("./activeArrs.js");
 
 // Login
@@ -199,6 +200,7 @@ client.on("message", async (msg) => {
       });
   }
 
+  //8. Tim and Eric B$M memes
   if (msgContent.includes("bonjour")) {
     let a = [
       "Bonjour",
@@ -210,6 +212,13 @@ client.on("message", async (msg) => {
 
   }
 
+  //Bubsy memes
+  if (msgContent.includes("bubsy")) {
+    let re = Math.floor(Math.random() * bubsyArr.length);
+    let le = bubsyArr.length
+    msg.channel.send(`There are ${le} Bubsy quotes currently tracked.`)
+    msg.channel.send(bubsyArr[re]);
+  }
 
 
 });
