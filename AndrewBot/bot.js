@@ -167,7 +167,7 @@ client.on("message", async (msg) => {
               },
               {
                 name: "Manned?",
-                value: response.data.crew ? '✅' : '❌',
+                value: response.data[0].crew.length != 0 ? '✅' : '❌',
               }
             ]
 		  },
@@ -205,7 +205,7 @@ client.on("message", async (msg) => {
               },
               {
                 name: "Manned?",
-                value: response.data.crew ? '✅' : '❌',
+                value: response.data.crew.length != 0 ? '✅' : '❌',
               },
             ],
             image: {
