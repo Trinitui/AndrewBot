@@ -211,7 +211,7 @@ client.on("message", async (msg) => {
             ],
             // Now I am selecting a random image from the aray above.
             image: {
-              url: imageArr[n],
+              url: n,
             },
             // This is not used as discord only allows one image embed.
             image: {
