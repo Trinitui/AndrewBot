@@ -186,6 +186,7 @@ client.on("message", async (msg) => {
         for (var i = 0; i <= response.data.links.flickr.original.length; i++) {
           imageArr.push(response.data.links.flickr.original[i]);
         }
+        let n = imageArr[Math.floor(Math.random() * response.data.links.flickr.original.length)]
         msg.channel.send({
           embed: {
             title: "SpaceX's Latest Launch",
@@ -208,9 +209,11 @@ client.on("message", async (msg) => {
                 value: response.data.crew ? '✅' : '❌',
               },
             ],
+            // Now I am selecting a random image from the aray above.
             image: {
-              url: imageArr[0],
+              url: imageArr[n],
             },
+            // This is not used as discord only allows one image embed.
             image: {
               url: imageArr[1],
             },
