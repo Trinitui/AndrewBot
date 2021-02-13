@@ -165,6 +165,10 @@ client.on("message", async (msg) => {
                 name: "Date",
                 value: upcomingdate,
               },
+              {
+                name: "Manned?",
+                value: response.data.crew ? '✅' : '❌',
+              }
             ]
 		  },
 		  
@@ -191,9 +195,24 @@ client.on("message", async (msg) => {
                 name: "Date",
                 value: `${response.data.date_local}`,
               },
+              {
+                name: "Successful Landing?",
+                value: response.data.cores[0].landing_success ? '✅' : '❌'
+              },
+              {
+                name: "# of previous flights:",
+                value: response.data.cores[0].flight
+              },
+              {
+                name: "Manned?",
+                value: response.data.crew ? '✅' : '❌',
+              },
             ],
             image: {
               url: imageArr[0],
+            },
+            image: {
+              url: imageArr[1],
             },
           },
         });
@@ -216,7 +235,7 @@ client.on("message", async (msg) => {
   if (msgContent.includes("bubsy")) {
     let re = Math.floor(Math.random() * bubsyArr.length);
     let le = bubsyArr.length
-    msg.channel.send(`There are ${le} Bubsy quotes currently tracked.`)
+    //msg.channel.send(`There are ${le} quotes currently tracked.`)
     msg.channel.send(bubsyArr[re]);
   }
 
