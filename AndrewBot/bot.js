@@ -34,6 +34,22 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+
+function timeConverter(timestamp){
+  var a = new Date(timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  return time;
+}
+
+
+
 // Message event (Commands)
 client.on("message", async (msg) => {
   const msgContent = msg.content.toLowerCase();
@@ -153,6 +169,7 @@ client.on("message", async (msg) => {
     axios
       .get("https://api.spacexdata.com/v4/launches/upcoming")
       .then( (response) => {
+        let unx = response.data.date_unix
         let upcomingname = response.data[0].name
         let upcomingdate = response.data[0].date_local
         console.log(upcomingname, upcomingdate)
@@ -163,13 +180,16 @@ client.on("message", async (msg) => {
             fields: [
               {
                 name: "Date",
-                value: upcomingdate,
+                value: timeConverter(unx),
               },
               {
                 name: "Manned?",
                 value: response.data.crew ? '✅' : '❌',
               }
-            ]
+            ],
+            image: {
+              url: res.data.links.patch.large,
+            },
 		  },
 		  
         });
@@ -187,14 +207,34 @@ client.on("message", async (msg) => {
           imageArr.push(response.data.links.flickr.original[i]);
         }
         let n = imageArr[Math.floor(Math.random() * response.data.links.flickr.original.length)]
+        let m = ""
+        let l = ""
+        let unx = response.data.date_unix
+        let corewant = response.data.cores[0].core
+        axios.get("https://api.spacexdata.com/v4/rockets").then(resp => {
+          for (i = 0; i < resp.data.length; i++) {
+          resp.data[i].id === response.data.rocket ? m = resp.data[i].name : ""
+          }
+        
+          axios.get("https://api.spacexdata.com/v4/launches").then(respo => {
+            let len = respo.data.length
+            let corewantarray = []
+            for (i=0;i<len;i++) {
+              respo.data[i].cores[0].core === corewant ? corewantarray.push(res.data[i].name) :"";
+         }
+            //console.log(corewantarray)
+            l = corewantarray.forEach(element => console.log(element));
+        
+        
+        
         msg.channel.send({
           embed: {
-            title: "SpaceX's Latest Launch",
-            description: response.data.name,
+            title: response.data.name,
+            description: m,
             fields: [
               {
                 name: "Date",
-                value: `${response.data.date_local}`,
+                value: timeConverter(unx),
               },
               {
                 name: "Successful Landing?",
@@ -203,6 +243,10 @@ client.on("message", async (msg) => {
               {
                 name: "# of previous flights:",
                 value: response.data.cores[0].flight
+              },
+              {
+                name: "Previous Flights "+ response.data.cores[0].flight,
+                value: l
               },
               {
                 name: "Manned?",
@@ -219,6 +263,8 @@ client.on("message", async (msg) => {
             },
           },
         });
+      });
+      });
       });
   }
 
