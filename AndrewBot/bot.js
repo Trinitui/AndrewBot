@@ -193,7 +193,7 @@ client.on("message", async (msg) => {
               },
               {
                 name: "Manned?",
-                value: response.data.crew ? '✅' : '❌',
+                value: response.data.crew.length > 0 ? '✅' : '❌',
               }
             ],
             image: {
@@ -248,16 +248,12 @@ client.on("message", async (msg) => {
                 value: response.data.cores[0].landing_success ? '✅' : '❌'
               },
               {
-                name: "# of previous flights:",
-                value: response.data.cores[0].flight
-              },
-              {
-                name: "Previous Flights "+ response.data.cores[0].flight,
+                name: "Previous Flights: "+response.data.cores[0].flight,
                 value: arraytolist(corewantarray)
               },
               {
                 name: "Manned?",
-                value: response.data.crew ? '✅' : '❌',
+                value: response.data.crew.length > 0 ? '✅' : '❌',
               },
             ],
             // Now I am selecting a random image from the aray above.
