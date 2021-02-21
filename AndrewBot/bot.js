@@ -48,6 +48,15 @@ function timeConverter(timestamp){
   return time;
 }
 
+function arraytolist(array) {
+	console.log(array)
+	var results = ""
+	for (var iii = 0; iii<array.length; iii++) {
+		results = results + array[iii]+", "
+}
+	results = results.substring(0, results.length - 2);
+  return results
+}
 
 
 // Message event (Commands)
@@ -188,7 +197,7 @@ client.on("message", async (msg) => {
               }
             ],
             image: {
-              url: response.data.links.patch.large,
+              url: response.data[0].links.patch.large,
             },
 		  },
 		  
@@ -208,7 +217,6 @@ client.on("message", async (msg) => {
         }
         let n = imageArr[Math.floor(Math.random() * response.data.links.flickr.original.length)]
         let m = ""
-        let l = ""
         let unx = response.data.date_unix
         let corewant = response.data.cores[0].core
         axios.get("https://api.spacexdata.com/v4/rockets").then(resp => {
@@ -223,7 +231,6 @@ client.on("message", async (msg) => {
               respo.data[i].cores[0].core === corewant ? corewantarray.push(respo.data[i].name) :"";
          }
             //console.log(corewantarray)
-            l = corewantarray.forEach(element => console.log(element));
         
         
         
@@ -246,7 +253,7 @@ client.on("message", async (msg) => {
               },
               {
                 name: "Previous Flights "+ response.data.cores[0].flight,
-                value: l
+                value: arraytolist(corewantarray)
               },
               {
                 name: "Manned?",
