@@ -188,7 +188,7 @@ client.on("message", async (msg) => {
               }
             ],
             image: {
-              url: res.data.links.patch.large,
+              url: response.data.links.patch.large,
             },
 		  },
 		  
@@ -220,7 +220,7 @@ client.on("message", async (msg) => {
             let len = respo.data.length
             let corewantarray = []
             for (i=0;i<len;i++) {
-              respo.data[i].cores[0].core === corewant ? corewantarray.push(res.data[i].name) :"";
+              respo.data[i].cores[0].core === corewant ? corewantarray.push(respo.data[i].name) :"";
          }
             //console.log(corewantarray)
             l = corewantarray.forEach(element => console.log(element));
