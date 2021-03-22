@@ -189,7 +189,7 @@ client.on("message", async (msg) => {
             fields: [
               {
                 name: "Date",
-                value: timeConverter(unx),
+                value: unx === undefined ? "TBD" : timeConverter(unx),
               },
               {
                 name: "Manned?",
@@ -291,5 +291,22 @@ client.on("message", async (msg) => {
     msg.channel.send(bubsyArr[re]);
   }
 
+   // 9. This gets a nightcore song when the user asks for one, using !toh*
+   if (msgContent.startsWith("!toh")) {
+    let q = msg.content;
+    //search yt for toh+searchterm
+    axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`
+      )
+      .then((response) => {
+        //send output to channel
+        let vid = response.data.items[0].id.videoId;
+        msg.channel.send(`https://www.youtube.com/watch?v=${vid}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 });
