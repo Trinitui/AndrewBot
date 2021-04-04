@@ -87,10 +87,10 @@ client.on("message", async (msg) => {
     await msg.channel.send(gexArray[i]);
   }
 
-  // 4. This gets a nightcore song when the user asks for one, using !nightcore*
-  if (msgContent.startsWith("!nightcore")) {
+  // 4. Search YT on a string that starts with !
+  if (msgContent.startsWith("!")) {
     let q = msg.content;
-    //search yt for Nightcore+searchterm
+    //search yt 
     axios
       .get(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`
@@ -289,24 +289,6 @@ client.on("message", async (msg) => {
     let le = bubsyArr.length
     //msg.channel.send(`There are ${le} quotes currently tracked.`)
     msg.channel.send(bubsyArr[re]);
-  }
-
-   // 9. This gets a nightcore song when the user asks for one, using !toh*
-   if (msgContent.startsWith("!toh")) {
-    let q = msg.content;
-    //search yt for toh+searchterm
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`
-      )
-      .then((response) => {
-        //send output to channel
-        let vid = response.data.items[0].id.videoId;
-        msg.channel.send(`https://www.youtube.com/watch?v=${vid}`);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
 });
