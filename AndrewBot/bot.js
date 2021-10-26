@@ -32,7 +32,8 @@ client.login(process.env.DISCORD_TOKEN);
 // Ready Event
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-});
+
+}).listen(process.env.PORT || 5000);
 
 
 function timeConverter(timestamp){
@@ -293,8 +294,8 @@ client.on("message", async (msg) => {
 
    // 9. This gets a nightcore song when the user asks for one, using !toh*
    if (msgContent.startsWith("!toh")) {
-    let q = msg.content;
-    //search yt for toh+searchterm
+    let q = "This old house " + msg.content;
+    //search yt for q
     axios
       .get(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`
@@ -309,4 +310,4 @@ client.on("message", async (msg) => {
       });
   }
 
-});
+}).listen(process.env.PORT || 5000);
