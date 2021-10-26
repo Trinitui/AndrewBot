@@ -292,7 +292,7 @@ client.on("message", async (msg) => {
     msg.channel.send(bubsyArr[re]);
   }
 
-<<<<<<< HEAD
+
    // 9. This gets a nightcore song when the user asks for one, using !toh*
    if (msgContent.startsWith("!toh")) {
     let q = "This old house " + msg.content;
