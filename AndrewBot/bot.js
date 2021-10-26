@@ -312,6 +312,3 @@ client.on("message", async (msg) => {
   }
 
 }).listen(process.env.PORT || 5000);
-=======
-});
->>>>>>> 5fef4544f18ef949d814c5436c971b54f262bf53
