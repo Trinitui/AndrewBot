@@ -88,10 +88,10 @@ client.on("message", async (msg) => {
     await msg.channel.send(gexArray[i]);
   }
 
-  // 4. This gets a nightcore song when the user asks for one, using !nightcore*
-  if (msgContent.startsWith("!nightcore")) {
+  // 4. Search YT on a string that starts with !
+  if (msgContent.startsWith("!")) {
     let q = msg.content;
-    //search yt for Nightcore+searchterm
+    //search yt 
     axios
       .get(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${YOUTUBE_APIKEY}`
@@ -292,6 +292,7 @@ client.on("message", async (msg) => {
     msg.channel.send(bubsyArr[re]);
   }
 
+<<<<<<< HEAD
    // 9. This gets a nightcore song when the user asks for one, using !toh*
    if (msgContent.startsWith("!toh")) {
     let q = "This old house " + msg.content;
@@ -311,3 +312,6 @@ client.on("message", async (msg) => {
   }
 
 }).listen(process.env.PORT || 5000);
+=======
+});
+>>>>>>> 5fef4544f18ef949d814c5436c971b54f262bf53
